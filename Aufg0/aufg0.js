@@ -8,8 +8,8 @@ var aufg0;
         txt = "Hello there, ";
         txt += input;
         txt += ". It is nice to meet you.";
-        document.getElementById("demmain").innerHTML += txt;
         console.log(input);
+        document.getElementById("demmain").innerHTML += txt;
     }
     document.addEventListener('DOMContentLoaded', name);
 })(aufg0 || (aufg0 = {}));
