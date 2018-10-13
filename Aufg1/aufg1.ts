@@ -43,8 +43,4 @@ namespace boxes{
     }
 }
 
-    //Erstellen Sie eine TraceTable zu untenstehendem TypeScript-Code und parallel dazu Aktivitätsdiagramme, die den Algorithmus beschreiben.
-    //Stellen Sie die zu erwartende Ausgabe grafisch auf Papier dar.
-    //Bringen Sie schließlich den Code zum Laufen und überprüfen Sie das Ergebnis.
-
-//Hinweis: Ein Konzept ist für diese Aufgabe nicht erforderlich.
+    
