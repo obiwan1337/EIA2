@@ -563,12 +563,14 @@ var UNO;
         }
         else {
             Deckarray[y].Aktiv = false;
-            startHand(Deckarray[y].Color, Deckarray[y].Number);
+            startHand(Deckarray[y].Color, Deckarray[y].Number, i);
         }
     }
-    function startHand(_color, _nummer) {
-        var _a = 90;
+    function startHand(_color, _nummer, n) {
+        var _a = (n + 0.5) * 90;
         var div = document.createElement("div");
+        7;
+        div.setAttribute;
         document.body.appendChild(div);
         var s = div.style;
         s.border = "thin solid black";
