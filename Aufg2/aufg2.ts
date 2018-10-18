@@ -646,7 +646,7 @@ for (let i: number=0; i  < p; i++){
 function startHand(_color:string ,_nummer:string, n:number):void {
         let _a: number = (n +0.5) * 90;
 
-let div: HTMLDivElement = document.createElement("div");7
+let div: HTMLDivElement = document.createElement("div");
       div.setAttribute
       document.body.appendChild(div);
 

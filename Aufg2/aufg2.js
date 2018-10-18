@@ -569,7 +569,6 @@ var UNO;
     function startHand(_color, _nummer, n) {
         var _a = (n + 0.5) * 90;
         var div = document.createElement("div");
-        7;
         div.setAttribute;
         document.body.appendChild(div);
         var s = div.style;
