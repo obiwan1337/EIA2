@@ -556,7 +556,7 @@ var UNO;
     var p;
     p = Number(o);
     for (var i = 0; i < p; i++) {
-        var y = Math.floor(Math.random() * 109);
+        var y = Math.floor(Math.random() * 10);
         if (Deckarray[y].Aktiv == false) {
             i--;
             continue;
