@@ -552,7 +552,7 @@ var UNO;
         Karte81, Karte82, Karte83, Karte84, Karte85, Karte86, Karte87, Karte88, Karte89, Karte90, Karte91, Karte92, Karte93, Karte94, Karte95, Karte96, Karte97, Karte98, Karte99, Karte100,
         Karte101, Karte102, Karte103, Karte104, Karte105, Karte106, Karte107, Karte108, Karte109,];
     //array.splice(index, howMany, [element1][, ..., elementN]);
-    var o = prompt();
+    var o = prompt('Enter any value in below', '');
     var p;
     p = Number(o);
     for (var i = 0; i < p; i++) {
