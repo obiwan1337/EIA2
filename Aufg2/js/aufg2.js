@@ -574,10 +574,10 @@ var UNO;
             s.border = "thin solid black";
             s.position = "absolute";
             s.backgroundColor = _color;
-            s.width = " 120 px";
-            s.height = " 230px";
+            s.width = 120 + "px";
+            s.height = 230 + "px";
             s.left = _a + "px";
-            s.top = 800 + " px";
+            s.bottom = 25 + "px";
         }
     }
     document.addEventListener('DOMContentLoaded', gemustartudesu);
