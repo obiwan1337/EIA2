@@ -646,7 +646,7 @@ for (let i: number=0; i  < p; i++){
 }
 
 function startHand(_color:string ,_nummer:string, n:number):void {
-        let _a: number = (n +0.7) * 110;
+        let _a: number = (n +0.9) * 110;
         console.log(_color, _nummer, n);
       let div: HTMLDivElement = document.createElement("div");
       div.setAttribute("id","Karte"+n);
@@ -656,7 +656,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.border = "thin solid black";
       s.position = "absolute";
       s.backgroundColor = _color;
-      s.width =  180 +"px";
+      s.width =  150 +"px";
       s.height =  230+ "px";
       s.left = _a + "px";
       s.bottom = 25 + "px";
