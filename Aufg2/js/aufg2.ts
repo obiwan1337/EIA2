@@ -631,7 +631,7 @@ function gemustartudesu ()  {
   console.log(p,o);
 for (let i: number=0; i  < p; i++){
 
-    let y: number=Math.floor(Math.random() * 10);
+    let y: number=Math.floor(Math.random() * 108);
     if (Deckarray[y].Aktiv == false) {
       i--;
       console.log(i);
@@ -659,7 +659,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.width = " 120 px";
       s.height =  " 230px";
       s.left = _a + "px";
-      s.top = "800 px";
+      s.top = 800+ " px";
 
     }
 }

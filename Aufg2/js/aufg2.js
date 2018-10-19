@@ -552,7 +552,7 @@ var UNO;
         p = Number(o);
         console.log(p, o);
         for (var i = 0; i < p; i++) {
-            var y = Math.floor(Math.random() * 10);
+            var y = Math.floor(Math.random() * 108);
             if (Deckarray[y].Aktiv == false) {
                 i--;
                 console.log(i);
@@ -577,7 +577,7 @@ var UNO;
             s.width = " 120 px";
             s.height = " 230px";
             s.left = _a + "px";
-            s.top = "800 px";
+            s.top = 800 + " px";
         }
     }
     document.addEventListener('DOMContentLoaded', gemustartudesu);
