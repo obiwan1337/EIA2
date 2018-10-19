@@ -580,34 +580,35 @@ var UNO;
             s.bottom = 25 + "px";
             s.textAlign = "center";
         }
-    }
-    function Ablage_Deckstapel() {
-        var Ablage = document.createElement("div");
-        document.body.appendChild(Ablage);
-        Ablage.setAttribute("id", "ablage");
-        document.getElementById("ablage").innerHTML += "Ablage";
-        var s = Ablage.style;
-        s.border = "thin solid black";
-        s.position = "absolute";
-        s.backgroundColor = "pink";
-        s.width = 128 + "px";
-        s.height = 200 + "px";
-        s.left = 25 + "px";
-        s.top = 25 + "px";
-        s.textAlign = "center";
-        var Aufnahme = document.createElement("div");
-        document.body.appendChild(Aufnahme);
-        Aufnahme.setAttribute("id", "aufnahme");
-        document.getElementById("aufnahme").innerHTML += "<img src=imgs/uno_backside.png width=100 alt=Aufnahme>";
-        var os = Aufnahme.style;
-        os.border = "thin solid black";
-        os.position = "absolute";
-        os.backgroundColor = "pink";
-        os.width = 128 + "px";
-        os.height = 200 + "px";
-        os.left = 25 + "px";
-        os.top = 25 + "px";
-        os.textAlign = "center";
+        function Ablage_Deckstapel() {
+            var Ablage = document.createElement("div");
+            document.body.appendChild(Ablage);
+            Ablage.setAttribute("id", "ablage");
+            document.getElementById("ablage").innerHTML += "Ablage";
+            var s = Ablage.style;
+            s.border = "thin solid black";
+            s.position = "absolute";
+            s.backgroundColor = "pink";
+            s.width = 128 + "px";
+            s.height = 200 + "px";
+            s.left = 25 + "px";
+            s.top = 25 + "px";
+            s.textAlign = "center";
+            var Aufnahme = document.createElement("div");
+            document.body.appendChild(Aufnahme);
+            Aufnahme.setAttribute("id", "aufnahme");
+            document.getElementById("aufnahme").innerHTML += "<img src=imgs/uno_backside.png width=100 alt=Aufnahme>";
+            var os = Aufnahme.style;
+            os.border = "thin solid black";
+            os.position = "absolute";
+            os.backgroundColor = "pink";
+            os.width = 128 + "px";
+            os.height = 200 + "px";
+            os.left = 25 + "px";
+            os.top = 25 + "px";
+            os.textAlign = "center";
+        }
+        Ablage_Deckstapel();
     }
     document.addEventListener('DOMContentLoaded', gemustartudesu);
 })(UNO || (UNO = {}));
