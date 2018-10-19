@@ -596,7 +596,7 @@ var UNO;
             s.backgroundColor = "#ff99cc";
             s.width = 128 + "px";
             s.height = 200 + "px";
-            s.left = 25 + "px";
+            s.right = 25 + "px";
             s.top = 25 + "px";
             s.textAlign = "center";
             s.borderRadius = 4 + "px";
