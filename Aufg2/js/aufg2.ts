@@ -656,7 +656,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.border = "thin solid black";
       s.position = "absolute";
       s.backgroundColor = _color;
-      s.width =  140 +"px";
+      s.width =  100 +"px";
       s.height =  200+ "px";
       s.left = _a + "px";
       s.bottom = 25 + "px";
