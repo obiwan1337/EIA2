@@ -573,42 +573,42 @@ let Karte101:  Karte = {
   Aktiv : true,
 }
 let Karte102:  Karte = {
-  Color : "black",
+  Color : "#000000",
   Number: "+4",
   Aktiv : true,
 }
 let Karte103:  Karte = {
-  Color : "black",
+  Color : "#000000",
   Number: "+4",
   Aktiv : true,
 }
 let Karte104:  Karte = {
-  Color : "black",
+  Color : "#000000",
   Number: "+4",
   Aktiv : true,
 }
 let Karte105:  Karte = {
-  Color : "black",
+  Color : "#000000",
   Number: "+4",
   Aktiv : true,
 }
 let Karte106:  Karte = {
-  Color : "black",
+  Color : "#000000",
   Number: "choose a color",
   Aktiv : true,
 }
 let Karte107:  Karte = {
-  Color : "black",
+  Color : "#000000",
   Number: "choose a color",
   Aktiv : true,
 }
 let Karte108:  Karte = {
-  Color : "black",
+  Color : "#000000",
   Number: "choose a color",
   Aktiv : true,
 }
 let Karte109:  Karte = {
-  Color : "black",
+  Color : "#000000",
   Number: "choose a color",
   Aktiv : true,
 }
@@ -659,7 +659,10 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.left = _a + "px";
       s.bottom = 25 + "px";
       s.textAlign = "center";
-
+      s.fontSize = 3 + "em";
+      if (_color == "#000000"){
+        s.color = "pink"
+      }
     }
     function Ablage_Deckstapel():void
     {
@@ -670,7 +673,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       let s: CSSStyleDeclaration = Ablage.style;
       s.border = "thin solid black";
       s.position = "absolute";
-      s.backgroundColor ="pink";
+      s.backgroundColor ="#ff99cc";// pink
       s.width =  128 +"px";
       s.height =  200+ "px";
       s.left = 25 + "px";
@@ -680,11 +683,11 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       let Aufnahme: HTMLDivElement = document.createElement("div");
       document.body.appendChild(Aufnahme);
       Aufnahme.setAttribute("id","aufnahme");
-      document.getElementById("aufnahme").innerHTML+= "<img src=imgs/uno_backside.png width=100 alt=Aufnahme>";
+      document.getElementById("aufnahme").innerHTML+= "<img src=imgs/uno_backside.png alt=Aufnahme>";
       let os: CSSStyleDeclaration = Aufnahme.style;
       os.border = "thin solid black";
       os.position = "absolute";
-      os.backgroundColor ="pink";
+      os.backgroundColor ="#ff99cc"; // pink
       os.width =  128 +"px";
       os.height =  200+ "px";
       os.left = 25 + "px";

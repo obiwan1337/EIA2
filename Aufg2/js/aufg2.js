@@ -501,42 +501,42 @@ var UNO;
         Aktiv: true,
     };
     var Karte102 = {
-        Color: "black",
+        Color: "#000000",
         Number: "+4",
         Aktiv: true,
     };
     var Karte103 = {
-        Color: "black",
+        Color: "#000000",
         Number: "+4",
         Aktiv: true,
     };
     var Karte104 = {
-        Color: "black",
+        Color: "#000000",
         Number: "+4",
         Aktiv: true,
     };
     var Karte105 = {
-        Color: "black",
+        Color: "#000000",
         Number: "+4",
         Aktiv: true,
     };
     var Karte106 = {
-        Color: "black",
+        Color: "#000000",
         Number: "choose a color",
         Aktiv: true,
     };
     var Karte107 = {
-        Color: "black",
+        Color: "#000000",
         Number: "choose a color",
         Aktiv: true,
     };
     var Karte108 = {
-        Color: "black",
+        Color: "#000000",
         Number: "choose a color",
         Aktiv: true,
     };
     var Karte109 = {
-        Color: "black",
+        Color: "#000000",
         Number: "choose a color",
         Aktiv: true,
     };
@@ -579,6 +579,10 @@ var UNO;
             s.left = _a + "px";
             s.bottom = 25 + "px";
             s.textAlign = "center";
+            s.fontSize = 3 + "em";
+            if (_color == "#000000") {
+                s.color = "pink";
+            }
         }
         function Ablage_Deckstapel() {
             var Ablage = document.createElement("div");
@@ -588,7 +592,7 @@ var UNO;
             var s = Ablage.style;
             s.border = "thin solid black";
             s.position = "absolute";
-            s.backgroundColor = "pink";
+            s.backgroundColor = "#ff99cc";
             s.width = 128 + "px";
             s.height = 200 + "px";
             s.left = 25 + "px";
@@ -597,11 +601,11 @@ var UNO;
             var Aufnahme = document.createElement("div");
             document.body.appendChild(Aufnahme);
             Aufnahme.setAttribute("id", "aufnahme");
-            document.getElementById("aufnahme").innerHTML += "<img src=imgs/uno_backside.png width=100 alt=Aufnahme>";
+            document.getElementById("aufnahme").innerHTML += "<img src=imgs/uno_backside.png alt=Aufnahme>";
             var os = Aufnahme.style;
             os.border = "thin solid black";
             os.position = "absolute";
-            os.backgroundColor = "pink";
+            os.backgroundColor = "#ff99cc";
             os.width = 128 + "px";
             os.height = 200 + "px";
             os.left = 25 + "px";
