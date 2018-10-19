@@ -647,7 +647,7 @@ for (let i: number=0; i  < p; i++){
 
 function startHand(_color:string ,_nummer:string, n:number):void {
         let _a: number = (n +0.7) * 110;
-        console.log(_color, _nummer, n);
+
       let div: HTMLDivElement = document.createElement("div");
       div.setAttribute("id","Karte"+n);
       document.body.appendChild(div);
@@ -656,13 +656,43 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.border = "thin solid black";
       s.position = "absolute";
       s.backgroundColor = _color;
-      s.width =  100 +"px";
+      s.width =  128 +"px";
       s.height =  200+ "px";
       s.left = _a + "px";
       s.bottom = 25 + "px";
       s.textAlign = "center";
 
     }
+}
+function Ablage_Deckstapel():void
+{
+  let Ablage: HTMLDivElement = document.createElement("div");
+  document.body.appendChild(Ablage);
+  Ablage.setAttribute("id","ablage");
+  document.getElementById("ablage").innerHTML+= "Ablage";
+  let s: CSSStyleDeclaration = Ablage.style;
+  s.border = "thin solid black";
+  s.position = "absolute";
+  s.backgroundColor ="pink";
+  s.width =  128 +"px";
+  s.height =  200+ "px";
+  s.left = 25 + "px";
+  s.top = 25 + "px";
+  s.textAlign = "center";
+
+  let Aufnahme: HTMLDivElement = document.createElement("div");
+  document.body.appendChild(Aufnahme);
+  Aufnahme.setAttribute("id","aufnahme");
+  document.getElementById("aufnahme").innerHTML+= "<img src=imgs/uno_backside.png width=100 alt=Aufnahme>";
+  let os: CSSStyleDeclaration = Aufnahme.style;
+  os.border = "thin solid black";
+  os.position = "absolute";
+  os.backgroundColor ="pink";
+  os.width =  128 +"px";
+  os.height =  200+ "px";
+  os.left = 25 + "px";
+  os.top = 25 + "px";
+  os.textAlign = "center";
 }
 document.addEventListener('DOMContentLoaded',gemustartudesu);
 }
