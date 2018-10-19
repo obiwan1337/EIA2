@@ -1,7 +1,5 @@
 var UNO;
 (function (UNO) {
-    // karte 69 Karte 38
-    //red follows
     var Karte0 = {
         Color: "#ff0000",
         Number: "0",
@@ -127,7 +125,6 @@ var UNO;
         Number: "change direction",
         Aktiv: true,
     };
-    //blue cards follow
     var Karte25 = {
         Color: "#0000ff",
         Number: "0",
@@ -253,7 +250,6 @@ var UNO;
         Number: "change direction",
         Aktiv: true,
     };
-    //green follows
     var Karte51 = {
         Color: "#00ff00",
         Number: "0",
@@ -379,7 +375,6 @@ var UNO;
         Number: "change direction",
         Aktiv: true,
     };
-    //yellow follows
     var Karte77 = {
         Color: "#ffff00",
         Number: "0",
@@ -551,37 +546,39 @@ var UNO;
         Karte60, Karte61, Karte62, Karte63, Karte64, Karte65, Karte66, Karte67, Karte68, Karte70, Karte71, Karte72, Karte73, Karte74, Karte75, Karte76, Karte77, Karte78, Karte79, Karte80,
         Karte81, Karte82, Karte83, Karte84, Karte85, Karte86, Karte87, Karte88, Karte89, Karte90, Karte91, Karte92, Karte93, Karte94, Karte95, Karte96, Karte97, Karte98, Karte99, Karte100,
         Karte101, Karte102, Karte103, Karte104, Karte105, Karte106, Karte107, Karte108, Karte109,];
-    //array.splice(index, howMany, [element1][, ..., elementN]);
-    var o = prompt('Enter any value in below', '');
-    var p;
-    p = Number(o);
-    console.log(p, o);
-    for (var i = 0; i < p; i++) {
-        var y = Math.floor(Math.random() * 10);
-        if (Deckarray[y].Aktiv == false) {
-            i--;
-            console.log(i);
-            continue;
+    function gemustartudesu() {
+        var o = prompt('Enter any value of cards');
+        var p;
+        p = Number(o);
+        console.log(p, o);
+        for (var i = 0; i < p; i++) {
+            var y = Math.floor(Math.random() * 10);
+            if (Deckarray[y].Aktiv == false) {
+                i--;
+                console.log(i);
+                continue;
+            }
+            else {
+                Deckarray[y].Aktiv = false;
+                console.log(y);
+                startHand(Deckarray[y].Color, Deckarray[y].Number, i);
+            }
         }
-        else {
-            Deckarray[y].Aktiv = false;
-            console.log(y);
-            startHand(Deckarray[y].Color, Deckarray[y].Number, i);
+        function startHand(_color, _nummer, n) {
+            var _a = (n + 0.5) * 90;
+            console.log(_color, _nummer, n);
+            var div = document.createElement("div");
+            div.setAttribute("id", "Krarte" + n);
+            document.body.appendChild(div);
+            var s = div.style;
+            s.border = "thin solid black";
+            s.position = "absolute";
+            s.backgroundColor = _color;
+            s.width = " 120 px";
+            s.height = " 230px";
+            s.left = _a + "px";
+            s.top = "800 px";
         }
     }
-    function startHand(_color, _nummer, n) {
-        var _a = (n + 0.5) * 90;
-        console.log(_color, _nummer, n);
-        var div = document.createElement("div");
-        div.setAttribute("id", "Krarte" + n);
-        document.body.appendChild(div);
-        var s = div.style;
-        s.border = "thin solid black";
-        s.position = "absolute";
-        s.backgroundColor = _color;
-        s.width = " 120 px";
-        s.height = " 230px";
-        s.left = _a + "px";
-        s.top = "800 px";
-    }
+    document.addEventListener('DOMContentLoaded', gemustartudesu);
 })(UNO || (UNO = {}));
