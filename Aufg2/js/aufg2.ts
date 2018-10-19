@@ -659,7 +659,8 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.left = _a + "px";
       s.bottom = 25 + "px";
       s.textAlign = "center";
-      s.fontSize = 3 + "em";
+      s.fontSize = 2 + "em";
+      s.borderRadius = 4 + "px";
       if (_color == "#000000"){
         s.color = "#ff99cc";
       }
@@ -679,6 +680,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.left = 25 + "px";
       s.top = 25 + "px";
       s.textAlign = "center";
+      s.borderRadius = 4 + "px";
 
       let Aufnahme: HTMLDivElement = document.createElement("div");
       document.body.appendChild(Aufnahme);
@@ -693,6 +695,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       os.left = 25 + "px";
       os.top = 25 + "px";
       os.textAlign = "center";
+      os.borderRadius = 4 + "px";
       }
 
     Ablage_Deckstapel();
