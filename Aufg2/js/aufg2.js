@@ -565,7 +565,7 @@ var UNO;
             }
         }
         function startHand(_color, _nummer, n) {
-            var _a = (n + 0.9) * 110;
+            var _a = (n + 0.7) * 110;
             console.log(_color, _nummer, n);
             var div = document.createElement("div");
             div.setAttribute("id", "Karte" + n);
@@ -574,8 +574,8 @@ var UNO;
             s.border = "thin solid black";
             s.position = "absolute";
             s.backgroundColor = _color;
-            s.width = 150 + "px";
-            s.height = 230 + "px";
+            s.width = 100 + "px";
+            s.height = 200 + "px";
             s.left = _a + "px";
             s.bottom = 25 + "px";
         }
