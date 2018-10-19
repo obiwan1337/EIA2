@@ -251,127 +251,127 @@ var UNO;
         Aktiv: true,
     };
     var Karte51 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "0",
         Aktiv: true,
     };
     var Karte52 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "1",
         Aktiv: true,
     };
     var Karte53 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "1",
         Aktiv: true,
     };
     var Karte54 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "2",
         Aktiv: true,
     };
     var Karte55 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "2",
         Aktiv: true,
     };
     var Karte56 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "3",
         Aktiv: true,
     };
     var Karte57 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "3",
         Aktiv: true,
     };
     var Karte58 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "4",
         Aktiv: true,
     };
     var Karte59 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "4",
         Aktiv: true,
     };
     var Karte60 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "5",
         Aktiv: true,
     };
     var Karte61 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "5",
         Aktiv: true,
     };
     var Karte62 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "6",
         Aktiv: true,
     };
     var Karte63 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "6",
         Aktiv: true,
     };
     var Karte64 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "7",
         Aktiv: true,
     };
     var Karte65 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "7",
         Aktiv: true,
     };
     var Karte66 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "8",
         Aktiv: true,
     };
     var Karte67 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "8",
         Aktiv: true,
     };
     var Karte68 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "9",
         Aktiv: true,
     };
     var Karte70 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "9",
         Aktiv: true,
     };
     var Karte71 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "block",
         Aktiv: true,
     };
     var Karte72 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "block",
         Aktiv: true,
     };
     var Karte73 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "+2",
         Aktiv: true,
     };
     var Karte74 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "+2",
         Aktiv: true,
     };
     var Karte75 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "change direction",
         Aktiv: true,
     };
     var Karte76 = {
-        Color: "#00ff00",
+        Color: "#228B22",
         Number: "change direction",
         Aktiv: true,
     };
@@ -496,7 +496,7 @@ var UNO;
         Aktiv: true,
     };
     var Karte101 = {
-        Color: "#00ff00",
+        Color: "#ffff00",
         Number: "change direction",
         Aktiv: true,
     };
@@ -526,17 +526,17 @@ var UNO;
         Aktiv: true,
     };
     var Karte107 = {
-        Color: "#00ff00",
+        Color: "black",
         Number: "choose a color",
         Aktiv: true,
     };
     var Karte108 = {
-        Color: "#00ff00",
+        Color: "black",
         Number: "choose a color",
         Aktiv: true,
     };
     var Karte109 = {
-        Color: "#00ff00",
+        Color: "black",
         Number: "choose a color",
         Aktiv: true,
     };
@@ -565,7 +565,7 @@ var UNO;
             }
         }
         function startHand(_color, _nummer, n) {
-            var _a = (n + 0.5) * 110;
+            var _a = (n + 0.7) * 110;
             console.log(_color, _nummer, n);
             var div = document.createElement("div");
             div.setAttribute("id", "Karte" + n);
@@ -574,7 +574,7 @@ var UNO;
             s.border = "thin solid black";
             s.position = "absolute";
             s.backgroundColor = _color;
-            s.width = 120 + "px";
+            s.width = 180 + "px";
             s.height = 230 + "px";
             s.left = _a + "px";
             s.bottom = 25 + "px";

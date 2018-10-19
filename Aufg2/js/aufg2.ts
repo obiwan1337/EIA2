@@ -317,130 +317,130 @@ let  Karte50:  Karte = {
 //green follows
 
 let Karte51:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "0",
   Aktiv : true,
 }
 let Karte52:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "1",
   Aktiv : true,
 }
 let Karte53:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "1",
   Aktiv : true,
 }
 let Karte54:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "2",
   Aktiv : true,
 }
 let Karte55:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "2",
   Aktiv : true,
 }
 let Karte56:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "3",
   Aktiv : true,
 }
 let Karte57:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "3",
   Aktiv : true,
 }
 let Karte58:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "4",
   Aktiv : true,
 }
 let Karte59:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "4",
   Aktiv : true,
 }
 let Karte60:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "5",
   Aktiv : true,
 }
 let Karte61:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "5",
   Aktiv : true,
 }
 let Karte62:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "6",
   Aktiv : true,
 }
 let Karte63:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "6",
   Aktiv : true,
 }
 let Karte64:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "7",
   Aktiv : true,
 }
 let Karte65:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "7",
   Aktiv : true,
 }
 
 let Karte66:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "8",
   Aktiv : true,
 }
 
 let Karte67:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "8",
   Aktiv : true,
 }
 let Karte68:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "9",
   Aktiv : true,
 }
 
 let Karte70:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "9",
   Aktiv : true,
 }
 let Karte71:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "block",
   Aktiv : true,
 }
 let Karte72:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "block",
   Aktiv : true,
 }
 let Karte73:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "+2",
   Aktiv : true,
 }
 let Karte74:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "+2",
   Aktiv : true,
 }
 let Karte75:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "change direction",
   Aktiv : true,
 }
 let Karte76:  Karte = {
-  Color : "#00ff00",
+  Color : "#228B22",
   Number: "change direction",
   Aktiv : true,
 }
@@ -568,7 +568,7 @@ let Karte100:  Karte = {
   Aktiv : true,
 }
 let Karte101:  Karte = {
-  Color : "#00ff00",
+  Color : "#ffff00",
   Number: "change direction",
   Aktiv : true,
 }
@@ -598,17 +598,17 @@ let Karte106:  Karte = {
   Aktiv : true,
 }
 let Karte107:  Karte = {
-  Color : "#00ff00",
+  Color : "black",
   Number: "choose a color",
   Aktiv : true,
 }
 let Karte108:  Karte = {
-  Color : "#00ff00",
+  Color : "black",
   Number: "choose a color",
   Aktiv : true,
 }
 let Karte109:  Karte = {
-  Color : "#00ff00",
+  Color : "black",
   Number: "choose a color",
   Aktiv : true,
 }
@@ -646,7 +646,7 @@ for (let i: number=0; i  < p; i++){
 }
 
 function startHand(_color:string ,_nummer:string, n:number):void {
-        let _a: number = (n +0.5) * 110;
+        let _a: number = (n +0.7) * 110;
         console.log(_color, _nummer, n);
       let div: HTMLDivElement = document.createElement("div");
       div.setAttribute("id","Karte"+n);
@@ -656,7 +656,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.border = "thin solid black";
       s.position = "absolute";
       s.backgroundColor = _color;
-      s.width =  120 +"px";
+      s.width =  180 +"px";
       s.height =  230+ "px";
       s.left = _a + "px";
       s.bottom = 25 + "px";
