@@ -651,7 +651,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       let div: HTMLDivElement = document.createElement("div");
       div.setAttribute("id","Karte"+n);
       document.body.appendChild(div);
-
+      document.getElementById("Karte" +n).innerHTML+= _nummer;
       let s: CSSStyleDeclaration = div.style;
       s.border = "thin solid black";
       s.position = "absolute";
@@ -660,6 +660,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.height =  200+ "px";
       s.left = _a + "px";
       s.bottom = 25 + "px";
+      s.textAlign = "center";
 
     }
 }
