@@ -565,10 +565,10 @@ var UNO;
             }
         }
         function startHand(_color, _nummer, n) {
-            var _a = (n + 0.5) * 90;
+            var _a = (n + 0.5) * 110;
             console.log(_color, _nummer, n);
             var div = document.createElement("div");
-            div.setAttribute("id", "Krarte" + n);
+            div.setAttribute("id", "Karte" + n);
             document.body.appendChild(div);
             var s = div.style;
             s.border = "thin solid black";
