@@ -625,18 +625,20 @@ let Deckarray : Karte [] = [Karte0,Karte1,Karte2,Karte3,Karte4,Karte5,Karte6,Kar
 
 
 
-  let o: string= prompt();
+  let o: string= prompt('Enter any value in below','');
   let p: number;
   p= Number (o);
+  console.log(p,o);
 for (let i: number=0; i  < p; i++){
 
-    let y: number=Math.floor(Math.random() * 109);
+    let y: number=Math.floor(Math.random() * 10);
     if (Deckarray[y].Aktiv == false) {
       i--;
+      console.log(i);
       continue;
     }else  {
                 Deckarray[y].Aktiv = false;
-
+                console.log(y);
                 startHand( Deckarray[y].Color,Deckarray[y].Number,i)
 
                 }
@@ -645,9 +647,9 @@ for (let i: number=0; i  < p; i++){
 
 function startHand(_color:string ,_nummer:string, n:number):void {
         let _a: number = (n +0.5) * 90;
-
-let div: HTMLDivElement = document.createElement("div");
-      div.setAttribute
+        console.log(_color, _nummer, n);
+      let div: HTMLDivElement = document.createElement("div");
+      div.setAttribute("id","Krarte"+n);
       document.body.appendChild(div);
 
       let s: CSSStyleDeclaration = div.style;

@@ -555,21 +555,25 @@ var UNO;
     var o = prompt('Enter any value in below', '');
     var p;
     p = Number(o);
+    console.log(p, o);
     for (var i = 0; i < p; i++) {
         var y = Math.floor(Math.random() * 10);
         if (Deckarray[y].Aktiv == false) {
             i--;
+            console.log(i);
             continue;
         }
         else {
             Deckarray[y].Aktiv = false;
+            console.log(y);
             startHand(Deckarray[y].Color, Deckarray[y].Number, i);
         }
     }
     function startHand(_color, _nummer, n) {
         var _a = (n + 0.5) * 90;
+        console.log(_color, _nummer, n);
         var div = document.createElement("div");
-        div.setAttribute;
+        div.setAttribute("id", "Krarte" + n);
         document.body.appendChild(div);
         var s = div.style;
         s.border = "thin solid black";
