@@ -661,7 +661,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.textAlign = "center";
       s.fontSize = 3 + "em";
       if (_color == "#000000"){
-        s.color = "pink"
+        s.color = "#ff99cc";
       }
     }
     function Ablage_Deckstapel():void
@@ -683,7 +683,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       let Aufnahme: HTMLDivElement = document.createElement("div");
       document.body.appendChild(Aufnahme);
       Aufnahme.setAttribute("id","aufnahme");
-      document.getElementById("aufnahme").innerHTML+= "<img src=imgs/uno_backside.png alt=Aufnahme>";
+      document.getElementById("aufnahme").innerHTML+= "<img src=imgs/uno_backside.png width=128 alt=Aufnahme>";
       let os: CSSStyleDeclaration = Aufnahme.style;
       os.border = "thin solid black";
       os.position = "absolute";

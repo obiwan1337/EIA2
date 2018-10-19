@@ -581,7 +581,7 @@ var UNO;
             s.textAlign = "center";
             s.fontSize = 3 + "em";
             if (_color == "#000000") {
-                s.color = "pink";
+                s.color = "#ff99cc";
             }
         }
         function Ablage_Deckstapel() {
@@ -601,7 +601,7 @@ var UNO;
             var Aufnahme = document.createElement("div");
             document.body.appendChild(Aufnahme);
             Aufnahme.setAttribute("id", "aufnahme");
-            document.getElementById("aufnahme").innerHTML += "<img src=imgs/uno_backside.png alt=Aufnahme>";
+            document.getElementById("aufnahme").innerHTML += "<img src=imgs/uno_backside.png width=128 alt=Aufnahme>";
             var os = Aufnahme.style;
             os.border = "thin solid black";
             os.position = "absolute";
