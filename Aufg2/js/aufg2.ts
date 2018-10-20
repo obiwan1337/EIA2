@@ -5,7 +5,7 @@ namespace UNO {
     Number: string;
     Aktiv : boolean;
 }
-// karte 69 Karte 38
+//  110 Karte 111
 //red follows
 let  Karte0:  Karte = {
 
@@ -170,7 +170,7 @@ let  Karte25:  Karte = {
 let  Karte26:  Karte = {
 
   Color : "#0000ff",
-  Number: "1",
+  Number: "0",
   Aktiv : true,
 }
 let  Karte27:  Karte = {
@@ -182,7 +182,7 @@ let  Karte27:  Karte = {
 let  Karte28:  Karte = {
 
   Color : "#0000ff",
-  Number: "2",
+  Number: "1",
   Aktiv : true,
 }
 let  Karte29:  Karte = {
@@ -194,7 +194,7 @@ let  Karte29:  Karte = {
 let  Karte30:  Karte = {
 
   Color : "#0000ff",
-  Number: "3",
+  Number: "2",
   Aktiv : true,
 }
 let  Karte31:  Karte = {
@@ -206,7 +206,7 @@ let  Karte31:  Karte = {
 let  Karte32:  Karte = {
 
   Color : "#0000ff",
-  Number: "4",
+  Number: "3",
   Aktiv : true,
 }
 let  Karte33:  Karte = {
@@ -218,7 +218,7 @@ let  Karte33:  Karte = {
 let  Karte34:  Karte = {
 
   Color : "#0000ff",
-  Number: "5",
+  Number: "4",
   Aktiv : true,
 }
 let  Karte35:  Karte = {
@@ -230,10 +230,16 @@ let  Karte35:  Karte = {
 let  Karte36:  Karte = {
 
   Color : "#0000ff",
-  Number: "6",
+  Number: "5",
   Aktiv : true,
 }
 let  Karte37:  Karte = {
+
+  Color : "#0000ff",
+  Number: "6",
+  Aktiv : true,
+}
+let  Karte38:  Karte = {
 
   Color : "#0000ff",
   Number: "6",
@@ -323,7 +329,7 @@ let Karte51:  Karte = {
 }
 let Karte52:  Karte = {
   Color : "#228B22",
-  Number: "1",
+  Number: "0",
   Aktiv : true,
 }
 let Karte53:  Karte = {
@@ -333,7 +339,7 @@ let Karte53:  Karte = {
 }
 let Karte54:  Karte = {
   Color : "#228B22",
-  Number: "2",
+  Number: "1",
   Aktiv : true,
 }
 let Karte55:  Karte = {
@@ -343,7 +349,7 @@ let Karte55:  Karte = {
 }
 let Karte56:  Karte = {
   Color : "#228B22",
-  Number: "3",
+  Number: "2",
   Aktiv : true,
 }
 let Karte57:  Karte = {
@@ -353,7 +359,7 @@ let Karte57:  Karte = {
 }
 let Karte58:  Karte = {
   Color : "#228B22",
-  Number: "4",
+  Number: "3",
   Aktiv : true,
 }
 let Karte59:  Karte = {
@@ -363,7 +369,7 @@ let Karte59:  Karte = {
 }
 let Karte60:  Karte = {
   Color : "#228B22",
-  Number: "5",
+  Number: "4",
   Aktiv : true,
 }
 let Karte61:  Karte = {
@@ -373,7 +379,7 @@ let Karte61:  Karte = {
 }
 let Karte62:  Karte = {
   Color : "#228B22",
-  Number: "6",
+  Number: "5",
   Aktiv : true,
 }
 let Karte63:  Karte = {
@@ -383,7 +389,7 @@ let Karte63:  Karte = {
 }
 let Karte64:  Karte = {
   Color : "#228B22",
-  Number: "7",
+  Number: "6",
   Aktiv : true,
 }
 let Karte65:  Karte = {
@@ -391,10 +397,9 @@ let Karte65:  Karte = {
   Number: "7",
   Aktiv : true,
 }
-
 let Karte66:  Karte = {
   Color : "#228B22",
-  Number: "8",
+  Number: "7",
   Aktiv : true,
 }
 
@@ -403,7 +408,13 @@ let Karte67:  Karte = {
   Number: "8",
   Aktiv : true,
 }
+
 let Karte68:  Karte = {
+  Color : "#228B22",
+  Number: "8",
+  Aktiv : true,
+}
+let Karte69:  Karte = {
   Color : "#228B22",
   Number: "9",
   Aktiv : true,
@@ -613,14 +624,30 @@ let Karte109:  Karte = {
   Aktiv : true,
 }
 
+// zwei Null Karten
+
+// roete null die zweite
+let Karte110:  Karte = {
+  Color : "#ff0000",
+  Number: "0",
+  Aktiv : true,
+
+}
+// gelbe Null die zweite
+let Karte111:  Karte = {
+    Color : "#ffff00",
+    Number: "0",
+    Aktiv : true,
+  }
+
 
 
 let Deckarray : Karte [] = [Karte0,Karte1,Karte2,Karte3,Karte4,Karte5,Karte6,Karte7,Karte8,Karte9,Karte10,Karte11,Karte12,Karte13,Karte14,Karte15,Karte16,Karte17,Karte18,Karte19,
-                                                  Karte20,Karte21,Karte22,Karte23,Karte24,Karte25,Karte26,Karte27,Karte28,Karte29,Karte30,Karte31,Karte32,Karte33,Karte34,Karte35,Karte36,Karte37,Karte39,
+                                                  Karte20,Karte21,Karte22,Karte23,Karte24,Karte25,Karte26,Karte27,Karte28,Karte29,Karte30,Karte31,Karte32,Karte33,Karte34,Karte35,Karte36,Karte37,Karte38,Karte39,
                                                   Karte40,Karte41,Karte42,Karte43,Karte44,Karte45,Karte46,Karte47,Karte48,Karte49,Karte50,Karte51,Karte52,Karte53,Karte54,Karte55,Karte56,Karte57,Karte58,Karte59,
-                                                 Karte60,Karte61,Karte62,Karte63,Karte64,Karte65,Karte66,Karte67,Karte68,Karte70,Karte71,Karte72,Karte73,Karte74,Karte75,Karte76,Karte77,Karte78,Karte79,Karte80,
+                                                 Karte60,Karte61,Karte62,Karte63,Karte64,Karte65,Karte66,Karte67,Karte68,Karte69,Karte70,Karte71,Karte72,Karte73,Karte74,Karte75,Karte76,Karte77,Karte78,Karte79,Karte80,
                                                  Karte81,Karte82,Karte83,Karte84,Karte85,Karte86,Karte87,Karte88,Karte89,Karte90,Karte91,Karte92,Karte93,Karte94,Karte95,Karte96,Karte97,Karte98,Karte99,Karte100,
-                                                Karte101,Karte102,Karte103,Karte104,Karte105,Karte106,Karte107,Karte108,Karte109,]
+                                                Karte101,Karte102,Karte103,Karte104,Karte105,Karte106,Karte107,Karte108,Karte109,Karte110,Karte111]
 //array.splice(index, howMany, [element1][, ..., elementN]);
 
 
@@ -631,7 +658,7 @@ function gemustartudesu ()  {
   console.log(p,o);
 for (let i: number=0; i  < p; i++){
 
-    let y: number=Math.floor(Math.random() * 108);
+    let y: number=Math.floor(Math.random() * 111);
     if (Deckarray[y].Aktiv == false) {
       i--;
       console.log(i);
@@ -644,7 +671,7 @@ for (let i: number=0; i  < p; i++){
                 }
 }
 function startHand(_color:string ,_nummer:string, n:number):void {
-        let _a: number = (n +0.7) * 110;
+        let _a: number = (n +0.7) * 110;    // Kartenabstand voneinander
 
       let div: HTMLDivElement = document.createElement("div");
       div.setAttribute("id","Karte"+n);
@@ -661,7 +688,7 @@ function startHand(_color:string ,_nummer:string, n:number):void {
       s.textAlign = "center";
       s.fontSize = 2 + "em";
       s.borderRadius = 4 + "px";
-      if (_color == "#000000"){
+      if (_color == "#000000"){ // wenn schwarze Karte, schrift in Pink
         s.color = "#ff99cc";
       }
     }

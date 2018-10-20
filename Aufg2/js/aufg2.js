@@ -132,7 +132,7 @@ var UNO;
     };
     var Karte26 = {
         Color: "#0000ff",
-        Number: "1",
+        Number: "0",
         Aktiv: true,
     };
     var Karte27 = {
@@ -142,7 +142,7 @@ var UNO;
     };
     var Karte28 = {
         Color: "#0000ff",
-        Number: "2",
+        Number: "1",
         Aktiv: true,
     };
     var Karte29 = {
@@ -152,7 +152,7 @@ var UNO;
     };
     var Karte30 = {
         Color: "#0000ff",
-        Number: "3",
+        Number: "2",
         Aktiv: true,
     };
     var Karte31 = {
@@ -162,7 +162,7 @@ var UNO;
     };
     var Karte32 = {
         Color: "#0000ff",
-        Number: "4",
+        Number: "3",
         Aktiv: true,
     };
     var Karte33 = {
@@ -172,7 +172,7 @@ var UNO;
     };
     var Karte34 = {
         Color: "#0000ff",
-        Number: "5",
+        Number: "4",
         Aktiv: true,
     };
     var Karte35 = {
@@ -182,10 +182,15 @@ var UNO;
     };
     var Karte36 = {
         Color: "#0000ff",
-        Number: "6",
+        Number: "5",
         Aktiv: true,
     };
     var Karte37 = {
+        Color: "#0000ff",
+        Number: "6",
+        Aktiv: true,
+    };
+    var Karte38 = {
         Color: "#0000ff",
         Number: "6",
         Aktiv: true,
@@ -257,7 +262,7 @@ var UNO;
     };
     var Karte52 = {
         Color: "#228B22",
-        Number: "1",
+        Number: "0",
         Aktiv: true,
     };
     var Karte53 = {
@@ -267,7 +272,7 @@ var UNO;
     };
     var Karte54 = {
         Color: "#228B22",
-        Number: "2",
+        Number: "1",
         Aktiv: true,
     };
     var Karte55 = {
@@ -277,7 +282,7 @@ var UNO;
     };
     var Karte56 = {
         Color: "#228B22",
-        Number: "3",
+        Number: "2",
         Aktiv: true,
     };
     var Karte57 = {
@@ -287,7 +292,7 @@ var UNO;
     };
     var Karte58 = {
         Color: "#228B22",
-        Number: "4",
+        Number: "3",
         Aktiv: true,
     };
     var Karte59 = {
@@ -297,7 +302,7 @@ var UNO;
     };
     var Karte60 = {
         Color: "#228B22",
-        Number: "5",
+        Number: "4",
         Aktiv: true,
     };
     var Karte61 = {
@@ -307,7 +312,7 @@ var UNO;
     };
     var Karte62 = {
         Color: "#228B22",
-        Number: "6",
+        Number: "5",
         Aktiv: true,
     };
     var Karte63 = {
@@ -317,7 +322,7 @@ var UNO;
     };
     var Karte64 = {
         Color: "#228B22",
-        Number: "7",
+        Number: "6",
         Aktiv: true,
     };
     var Karte65 = {
@@ -327,7 +332,7 @@ var UNO;
     };
     var Karte66 = {
         Color: "#228B22",
-        Number: "8",
+        Number: "7",
         Aktiv: true,
     };
     var Karte67 = {
@@ -336,6 +341,11 @@ var UNO;
         Aktiv: true,
     };
     var Karte68 = {
+        Color: "#228B22",
+        Number: "8",
+        Aktiv: true,
+    };
+    var Karte69 = {
         Color: "#228B22",
         Number: "9",
         Aktiv: true,
@@ -540,19 +550,29 @@ var UNO;
         Number: "choose a color",
         Aktiv: true,
     };
+    var Karte110 = {
+        Color: "#ff0000",
+        Number: "0",
+        Aktiv: true,
+    };
+    var Karte111 = {
+        Color: "#ffff00",
+        Number: "0",
+        Aktiv: true,
+    };
     var Deckarray = [Karte0, Karte1, Karte2, Karte3, Karte4, Karte5, Karte6, Karte7, Karte8, Karte9, Karte10, Karte11, Karte12, Karte13, Karte14, Karte15, Karte16, Karte17, Karte18, Karte19,
-        Karte20, Karte21, Karte22, Karte23, Karte24, Karte25, Karte26, Karte27, Karte28, Karte29, Karte30, Karte31, Karte32, Karte33, Karte34, Karte35, Karte36, Karte37, Karte39,
+        Karte20, Karte21, Karte22, Karte23, Karte24, Karte25, Karte26, Karte27, Karte28, Karte29, Karte30, Karte31, Karte32, Karte33, Karte34, Karte35, Karte36, Karte37, Karte38, Karte39,
         Karte40, Karte41, Karte42, Karte43, Karte44, Karte45, Karte46, Karte47, Karte48, Karte49, Karte50, Karte51, Karte52, Karte53, Karte54, Karte55, Karte56, Karte57, Karte58, Karte59,
-        Karte60, Karte61, Karte62, Karte63, Karte64, Karte65, Karte66, Karte67, Karte68, Karte70, Karte71, Karte72, Karte73, Karte74, Karte75, Karte76, Karte77, Karte78, Karte79, Karte80,
+        Karte60, Karte61, Karte62, Karte63, Karte64, Karte65, Karte66, Karte67, Karte68, Karte69, Karte70, Karte71, Karte72, Karte73, Karte74, Karte75, Karte76, Karte77, Karte78, Karte79, Karte80,
         Karte81, Karte82, Karte83, Karte84, Karte85, Karte86, Karte87, Karte88, Karte89, Karte90, Karte91, Karte92, Karte93, Karte94, Karte95, Karte96, Karte97, Karte98, Karte99, Karte100,
-        Karte101, Karte102, Karte103, Karte104, Karte105, Karte106, Karte107, Karte108, Karte109,];
+        Karte101, Karte102, Karte103, Karte104, Karte105, Karte106, Karte107, Karte108, Karte109, Karte110, Karte111];
     function gemustartudesu() {
         var o = prompt('Enter any value of cards');
         var p;
         p = Number(o);
         console.log(p, o);
         for (var i = 0; i < p; i++) {
-            var y = Math.floor(Math.random() * 108);
+            var y = Math.floor(Math.random() * 111);
             if (Deckarray[y].Aktiv == false) {
                 i--;
                 console.log(i);
