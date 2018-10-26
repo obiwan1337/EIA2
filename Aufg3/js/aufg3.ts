@@ -25,18 +25,23 @@ namespace Aufg3 {
     switch (_color) {
       case "r": {
         _color = "#ff0000";
+        break;
       }
       case "y": {
         _color = "#ffff00";
+        break;
       }
       case "b": {
-        _color = "#0000ff"
+        _color = "#0000ff";
+        break;
       }
       case "g": {
-        _color = "#228B22"
+        _color = "#228B22";
+        break;
       }
       case "s": {
-        _color = "#000000"
+        _color = "#000000";
+        break;
       }
     }
     /*let canvas: HTMLCanvasElement = document.createElement("canvas");
