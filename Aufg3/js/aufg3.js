@@ -16,27 +16,30 @@ var Aufg3;
             starthand(color, number, i);
             Deckarray.splice(randomnumber, 1);
         }
-        function starthand(_color, _number, _i) {
-            switch (_color) {
-                case "r": {
-                    _color == "#ff0000";
-                }
-                case "y": {
-                    _color == "#ffff00";
-                }
-                case "b": {
-                    _color == "#0000ff";
-                }
-                case "g": {
-                    _color == "#228B22";
-                }
+    }
+    function starthand(_color, _number, _i) {
+        switch (_color) {
+            case "r": {
+                _color = "#ff0000";
             }
-            var canvas = document.createElement("canvas");
-            canvas.setAttribute("id", "Karte" + _i);
-            document.getElementById("Karte" + _i).innerHTML += _number;
-            var s = canvas.style;
-            s.backgroundColor = "_color";
+            case "y": {
+                _color = "#ffff00";
+            }
+            case "b": {
+                _color = "#0000ff";
+            }
+            case "g": {
+                _color = "#228B22";
+            }
+            case "s": {
+                _color = "#000000";
+            }
         }
+        var div = document.createElement("div");
+        div.setAttribute("id", "Karte" + _i);
+        console.log(_color, _number, _i);
+        document.getElementById("hand").appendChild(div);
+        document.getElementById("Karte" + _i).innerHTML += _number;
     }
     document.addEventListener('DOMContentLoaded', startgame);
 })(Aufg3 || (Aufg3 = {}));

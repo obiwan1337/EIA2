@@ -19,42 +19,42 @@ namespace Aufg3 {
       Deckarray.splice(randomnumber, 1);
     }
 
-    function starthand(_color:string, _number: string, _i) {
-      switch (_color) {
-        case "r": {
-          _color = "#ff0000";
-        }
-        case "y": {
-          _color = "#ffff00";
-        }
-        case "b": {
-          _color = "#0000ff"
-        }
-        case "g": {
-          _color = "#228B22"
-        }
-        case "s": {
-          _color = "#000000"
-        }
-      }
-      /*let canvas: HTMLCanvasElement = document.createElement("canvas");
-      document.getElementById("hand").appendChild(canvas);
-      canvas.setAttribute("id", "Karte" + _i);
-      document.getElementById("Karte" + _i).innerHTML += _number;
-      //document.getElementById("hand").appendChild(canvas);
-      let c = document.getElementById("canvas");
-      let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
-      ctx.fillStyle = _color;
-      ctx.fillRect(20, 20, 200, 300);*/
-      let div: HTMLDivElement = document.createElement("div");
-      div.setAttribute("id","Karte"+_i);
-      console.log(_color, _number, _i)
-      document.getElementById("hand").appendChild(div);
-      document.getElementById("Karte" +_i).innerHTML+= _number;
 
-    }
   }
+  function starthand(_color:string, _number: string, _i) {
+    switch (_color) {
+      case "r": {
+        _color = "#ff0000";
+      }
+      case "y": {
+        _color = "#ffff00";
+      }
+      case "b": {
+        _color = "#0000ff"
+      }
+      case "g": {
+        _color = "#228B22"
+      }
+      case "s": {
+        _color = "#000000"
+      }
+    }
+    /*let canvas: HTMLCanvasElement = document.createElement("canvas");
+    document.getElementById("hand").appendChild(canvas);
+    canvas.setAttribute("id", "Karte" + _i);
+    document.getElementById("Karte" + _i).innerHTML += _number;
+    //document.getElementById("hand").appendChild(canvas);
+    let c = document.getElementById("canvas");
+    let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
+    ctx.fillStyle = _color;
+    ctx.fillRect(20, 20, 200, 300);*/
+    let div: HTMLDivElement = document.createElement("div");
+    div.setAttribute("id","Karte"+_i);
+    console.log(_color, _number, _i)
+    document.getElementById("hand").appendChild(div);
+    document.getElementById("Karte" +_i).innerHTML+= _number;
 
+  }
   /*let canvas = document.getElementById('deck');
   let context : CanvasRenderingContext2D = canvas.getContext("2d");
   let imageObj = new Image();
