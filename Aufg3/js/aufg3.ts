@@ -33,6 +33,9 @@ namespace Aufg3 {
         case "g": {
           _color = "#228B22"
         }
+        case "s": {
+          _color = "#000000"
+        }
       }
       /*let canvas: HTMLCanvasElement = document.createElement("canvas");
       document.getElementById("hand").appendChild(canvas);
@@ -45,12 +48,13 @@ namespace Aufg3 {
       ctx.fillRect(20, 20, 200, 300);*/
       let div: HTMLDivElement = document.createElement("div");
       div.setAttribute("id","Karte"+_i);
+      console.log(_color, _number, _i)
       document.getElementById("hand").appendChild(div);
       document.getElementById("Karte" +_i).innerHTML+= _number;
-      
+
     }
   }
-  
+
   /*let canvas = document.getElementById('deck');
   let context : CanvasRenderingContext2D = canvas.getContext("2d");
   let imageObj = new Image();
