@@ -19,6 +19,7 @@
   position:absolute;
   bottom:5%;
   width: 95%;
+  hight: 33%;
   margin-left: 2.5%;
   margin-right: 2.5%;
 
@@ -27,8 +28,8 @@
 
     float:left;
     right: 15%;
-    width:  128px;
-    height: 200px;
+    width:  10%;
+    height: 15%;
     border-radius: 4px;
     font-Size:  4.3em;
     text-Align:center;
