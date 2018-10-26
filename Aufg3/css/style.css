@@ -21,7 +21,17 @@
   margin-right: 2.5%;
 
 }
+#hand > div {
 
+    float:left;
+    right: 15%;
+    width:  128px;
+    height: 200px;
+    border-radius: 4px;
+    font-Size:1.7 em;
+    text-Align:center;
+
+}
 #hand > canvas {
 
     float:left;
