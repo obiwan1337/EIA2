@@ -37,10 +37,9 @@ namespace Aufg3 {
       let canvas: HTMLCanvasElement = document.createElement("canvas");
       canvas.setAttribute("id", "Karte" + _i);
       document.getElementById("Karte" + _i).innerHTML += _number;
-      document.getElementById("hand").appendChild(canvas);
-      let ctx = canvas.getContext("2d");
-      ctx.font = "30px Ubuntu";
-      ctx.fillText("Hello World", 10, 50);
+      //document.getElementById("hand").appendChild(canvas);
+  
+
       let s: CSSStyleDeclaration = canvas.style;
       s.backgroundColor = "_color";
 
@@ -49,4 +48,3 @@ namespace Aufg3 {
   }
   document.addEventListener('DOMContentLoaded', startgame);
 }
-
