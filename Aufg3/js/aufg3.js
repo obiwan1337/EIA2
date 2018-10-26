@@ -40,6 +40,8 @@ var Aufg3;
         console.log(_color, _number, _i);
         document.getElementById("hand").appendChild(div);
         document.getElementById("Karte" + _i).innerHTML += _number;
+        var s = div.style;
+        s.backgroundColor = _color;
     }
     document.addEventListener('DOMContentLoaded', startgame);
 })(Aufg3 || (Aufg3 = {}));

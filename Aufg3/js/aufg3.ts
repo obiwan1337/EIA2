@@ -53,7 +53,8 @@ namespace Aufg3 {
     console.log(_color, _number, _i)
     document.getElementById("hand").appendChild(div);
     document.getElementById("Karte" +_i).innerHTML+= _number;
-
+    let s: CSSStyleDeclaration = div.style;
+    s.backgroundColor = _color;
   }
   /*let canvas = document.getElementById('deck');
   let context : CanvasRenderingContext2D = canvas.getContext("2d");
