@@ -1,1 +1,35 @@
+#stacking {
+  float:left;
+  top: 5%;
+  left: 5%;
+  border-radius: 4px;
+  border-style: thin solid rgb(0, 0, 0);
+}
+#deck {
+  float:left;
+  top: 5%;
+  right:5%;
+  border-radius: 4px;
+  border-style: thin solid rgb(0, 0, 0);
+}
 
+#hand {
+    clear:left;
+  bottom:5%;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+
+}
+
+#hand > canvas {
+
+    float:left;
+    right: 15%;
+    width:  128px;
+    height: 200px;
+    border-radius: 4px;
+    font-Size:1.7 em;
+    text-Align:center;
+
+}
