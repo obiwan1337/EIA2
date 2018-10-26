@@ -60,6 +60,10 @@ namespace Aufg3 {
     document.getElementById("Karte" +_i).innerHTML+= _number;
     let s: CSSStyleDeclaration = div.style;
     s.backgroundColor = _color;
+    if (_color == "#000000"){ // wenn schwarze Karte, schrift in Pink
+      s.color = "#ff99cc";
+    }
+    
   }
   /*let canvas = document.getElementById('deck');
   let context : CanvasRenderingContext2D = canvas.getContext("2d");

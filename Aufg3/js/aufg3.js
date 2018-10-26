@@ -47,6 +47,9 @@ var Aufg3;
         document.getElementById("Karte" + _i).innerHTML += _number;
         var s = div.style;
         s.backgroundColor = _color;
+        if (_color == "#000000") {
+            s.color = "#ff99cc";
+        }
     }
     document.addEventListener('DOMContentLoaded', startgame);
 })(Aufg3 || (Aufg3 = {}));
