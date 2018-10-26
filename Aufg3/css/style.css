@@ -2,13 +2,16 @@
   position:absolute;
   top: 5%;
   left: 5%;
-  width:  128px;
-  height: 200px;
+   width:  10%;
+    height: 15%;
   border-radius: 4px;
   border-style: thin solid black;
+  
 }
 #deck {
   position:absolute;
+   width:  10%;
+    height: 15%;
   top: 5%;
   right:5%;
   border-radius: 4px;
