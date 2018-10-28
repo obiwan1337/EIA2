@@ -8,12 +8,13 @@
     height: 120px;
     border-radius: 6px;
     border-style:  solid black;
+    max-width: 25%;
   }
   
   #deck {
     position: absolute;
-    top: 2%;
-    left: 2%;
+    right :25px;
+    top :25px;
     width: 65px;
     height: 120px;
     border-radius: 6px;
@@ -42,22 +43,24 @@
 @media only screen and (min-width: 768px) {
 #stacking {
   position: absolute;
-  top: 5%;
-  left: 5%;
+  top: 25px;
+  left: 25px;
   width: 128px;
   height: 200px;
   border-radius: 6px;
-  border-style:  solid black;
+  border-style:  thin solid black;
+  max-width: 25%;
+  background-color: #ff99cc;
 }
 
 #deck {
   position: absolute;
   max-width: 128px;
   max-height: 200px;
-  top: 5%;
-  right: 5%;
+  top: 25px;
+  right: 25px;
   border-radius: 6px;
-  
+  max-width: 25%;
 }
 .img {
   max-width: 128px;
@@ -81,7 +84,7 @@
   width: 128px;
   height: 200px;
   border-radius: 4px;
-  font-Size: 4.3em;
+  font-Size: 3.5em;
   text-Align: center;
 
 }
