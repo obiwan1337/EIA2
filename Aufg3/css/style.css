@@ -1,4 +1,3 @@
-
 @media only screen and (max-width: 768px) {
   #stacking {
     position: absolute;
@@ -7,31 +6,33 @@
     width: 80px;
     height: 140px;
     border-radius: 6px;
-    border-style: thin solid black;
+    border-style: solid;
+    border-color: black;
     max-width: 25%;
     background-color: #ff99cc;
   }
-  
+
   #deck {
     position: absolute;
-    right :25px;
-    top :25px;
+    right: 25px;
+    top: 25px;
     width: 80px;
     height: 140px;
     border-radius: 6px;
-    
   }
-  #deck > img {
+
+  #deck>img {
     width: 80px;
     height: 140px;
   }
+
   #hand {
     position: absolute;
     bottom: 1%;
     width: 100%;
   }
-  #hand>div {
 
+  #hand>div {
     float: left;
     right: 15%;
     width: 80px;
@@ -39,71 +40,64 @@
     border-radius: 4px;
     font-Size: 3em;
     text-Align: center;
+  }
+}
 
-}
-}
 @media only screen and (min-width: 768px) {
-#stacking {
-  position: absolute;
-  top: 25px;
-  left: 25px;
-  width: 128px;
-  height: 200px;
-  border-radius: 6px;
-  border-style:  thin solid black;
-  max-width: 25%;
-  background-color: #ff99cc;
-}
+  #stacking {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 128px;
+    height: 200px;
+    border-radius: 6px;
+    border-style: thin solid;
+    border-color: black;
+    max-width: 25%;
+    background-color: #ff99cc;
+  }
+  #deck {
+    position: absolute;
+    max-width: 128px;
+    max-height: 200px;
+    top: 25px;
+    right: 25px;
+    border-radius: 6px;
+    max-width: 25%;
+  }
+  #deck>img {
+    max-width: 128px;
+    max-height: 200px;
+  }
+  #hand {
+    position: absolute;
+    bottom: 2%;
+    width: 95%;
+    height: 205px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 
-#deck {
-  position: absolute;
-  max-width: 128px;
-  max-height: 200px;
-  top: 25px;
-  right: 25px;
-  border-radius: 6px;
-  max-width: 25%;
-}
-#deck > img {
-  max-width: 128px;
-  max-height: 200px;
-}
+  }
+  #hand>div {
 
-#hand {
-  position: absolute;
-  bottom: 2%;
-  width: 95%;
-  height: 205px;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
+    float: left;
+    right: 15%;
+    width: 128px;
+    height: 200px;
+    border-radius: 4px;
+    font-Size: 3.5em;
+    text-Align: center;
 
-}
+  }
+  #hand>canvas {
 
-#hand>div {
+    float: left;
+    right: 15%;
+    width: 128px;
+    height: 200px;
+    border-radius: 4px;
+    font-Size: 1.7 em;
+    text-Align: center;
 
-  float: left;
-  right: 15%;
-  width: 128px;
-  height: 200px;
-  border-radius: 4px;
-  font-Size: 3.5em;
-  text-Align: center;
-
-}
-
-#hand>canvas {
-
-  float: left;
-  right: 15%;
-  width: 128px;
-  height: 200px;
-  border-radius: 4px;
-  font-Size: 1.7 em;
-  text-Align: center;
-
-}
-
-
- 
-
+  }
 }
