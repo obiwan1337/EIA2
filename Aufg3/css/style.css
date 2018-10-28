@@ -52,16 +52,16 @@
 
 #deck {
   position: absolute;
-  width: 128px;
-  height: 200px;
+  max-width: 128px;
+  max-height: 200px;
   top: 5%;
   right: 5%;
   border-radius: 6px;
   
 }
 .img {
-  width: 128px;
-  height: 200px;
+  max-width: 128px;
+  max-height: 200px;
 }
 
 #hand {
