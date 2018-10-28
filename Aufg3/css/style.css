@@ -59,7 +59,7 @@
   border-radius: 6px;
   
 }
-#deck > img {
+.img {
   width: 128px;
   height: 200px;
 }
