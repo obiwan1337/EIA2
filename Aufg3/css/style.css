@@ -63,7 +63,7 @@
   border-radius: 6px;
   max-width: 25%;
 }
-.img {
+#deck > img {
   max-width: 128px;
   max-height: 200px;
 }
@@ -72,7 +72,7 @@
   position: absolute;
   bottom: 2%;
   width: 95%;
-  height: 500px;
+  height: 205px;
   margin-left: 2.5%;
   margin-right: 2.5%;
 
