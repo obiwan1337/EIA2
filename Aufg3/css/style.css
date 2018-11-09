@@ -1,5 +1,8 @@
 @media only screen and (max-width: 768px) {
-  #stacking {
+  body{
+    background-color: hotpink;
+  }
+  #stack {
     position: absolute;
     top: 25px;
     left: 25px;
@@ -41,10 +44,23 @@
     font-Size: 3em;
     text-Align: center;
   }
+  #sortbutton {
+    position:absolute;
+    right: 12px;
+    bottom: 12px;
+  }
+  #stack>div{
+    width: 128px;
+    height: 200px;
+    border-radius: 6px;
+    font-Size: 3em;
+    text-Align: center;
+  }
+ 
 }
 
 @media only screen and (min-width: 768px) {
-  #stacking {
+  #stack {
     position: absolute;
     top: 25px;
     left: 25px;
@@ -55,6 +71,16 @@
     border-color: black;
     max-width: 25%;
     background-color: #ff99cc;
+  }
+  body{
+    background-color: hotpink;
+  }
+  #stack>div{
+    width: 128px;
+    height: 200px;
+    border-radius: 6px;
+    font-Size: 3em;
+    text-Align: center;
   }
   #deck {
     position: absolute;
@@ -99,5 +125,10 @@
     font-Size: 1.7 em;
     text-Align: center;
 
+  }
+  #sortbutton {
+    position:absolute;
+    right: 12px;
+    top: 12px;
   }
 }
