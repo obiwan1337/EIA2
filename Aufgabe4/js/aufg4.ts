@@ -195,7 +195,7 @@ namespace cuztree {
         }  else if (fieldIDstring == '') {
             
         }else {
-            console.log("du dreckiger huso");
+            console.log("as if i know what happens");
         }
     }
     function cartrefresh() {

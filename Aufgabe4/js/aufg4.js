@@ -184,8 +184,10 @@ var cuztree;
                 cartrefresh();
             }
         }
+        else if (fieldIDstring == '') {
+        }
         else {
-            console.log("du dreckiger huso");
+            console.log("as if i know what happens");
         }
     }
     function cartrefresh() {
@@ -253,7 +255,6 @@ var cuztree;
         var roundedgesprice = Number(fixedprice);
         childnode += "\n Gesamter Preis:" + roundedgesprice;
         node.innerHTML += childnode;
-        buttoncheck();
     }
     function buttoncheck() {
         if (adress[0] == '0' || adress[1] == '0' || cart[10] == '0') {
