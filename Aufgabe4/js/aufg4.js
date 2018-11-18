@@ -10,6 +10,7 @@ var cuztree;
         shipmentrefresh();
         cartrefresh();
         adressrefresh();
+        buttonrefresh();
     }
     console.log(cart);
     function refreshtrees(_array, _id, _liste) {
@@ -74,6 +75,10 @@ var cuztree;
         var node = document.getElementById("adress");
         node.addEventListener("change", refreshcart);
     }
+    function buttonrefresh() {
+        var node = document.getElementById("bebutton");
+        node.addEventListener("click", buttoncheck);
+    }
     function refreshcart(_event) {
         var changedfield = _event.target;
         var fieldIDstring = (changedfield.id);
@@ -89,9 +94,9 @@ var cuztree;
         var candlecount = document.getElementById('candle').value;
         console.log(candlecount);
         var namevalue = document.getElementById('lname').value;
-        console.log(namevalue);
-        var adressvalue = document.getElementById('lname').value;
-        console.log(adressvalue);
+        console.log(namevalue + "namevalue");
+        var adressvalue = document.getElementById('street').value;
+        console.log(adressvalue + "adressvalue");
         if (fieldIDstring == 'baumliste') {
             if (baumvalue != '-1') {
                 cart.splice(0, 2);
@@ -164,10 +169,12 @@ var cuztree;
             if (candlecount != '0') {
                 cart.splice(9, 1, candlecount);
                 console.log(cart.join() + " value kerze");
+                cartrefresh();
             }
             else {
                 cart.splice(9, 1, "0");
                 console.log(cart.join() + " value kerze");
+                cartrefresh();
             }
         }
         else if (fieldIDstring.substr(0, 8) == 'shipment') {
@@ -184,7 +191,13 @@ var cuztree;
                 cartrefresh();
             }
         }
-        else if (fieldIDstring == '') {
+        else if (fieldIDstring == 'lname') {
+            adress.splice(0, 1, namevalue);
+            cartrefresh();
+        }
+        else if (fieldIDstring == 'street') {
+            adress.splice(1, 1, adressvalue);
+            cartrefresh();
         }
         else {
             console.log("as if i know what happens");
@@ -249,11 +262,19 @@ var cuztree;
             var roundedprice = Number(fixedprice_5);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
-            childnode += "</textarea>";
+        }
+        childnode += "\nEingegebener Name: ";
+        if (adress[0] != '0') {
+            childnode += adress[0] + " ";
+        }
+        childnode += "\nEingegebene Adresse: ";
+        if (adress[1] != '0') {
+            childnode += adress[1] + " ";
         }
         var fixedprice = gesprice.toFixed(2);
         var roundedgesprice = Number(fixedprice);
-        childnode += "\n Gesamter Preis:" + roundedgesprice;
+        childnode += "\nGesamter Preis:" + roundedgesprice;
+        childnode += "</textarea>";
         node.innerHTML += childnode;
     }
     function buttoncheck() {
@@ -264,8 +285,6 @@ var cuztree;
             childnode += "fehlende Eingabe";
             node.innerHTML += childnode;
         }
-        else
-            document.getElementsByTagName("button")[0].removeAttribute("disabled");
     }
     document.addEventListener('DOMContentLoaded', init);
 })(cuztree || (cuztree = {}));

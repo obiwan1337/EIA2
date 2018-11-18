@@ -13,6 +13,7 @@ namespace cuztree {
         shipmentrefresh();
         cartrefresh();
         adressrefresh();
+        buttonrefresh();
     }
     console.log(cart);
     function refreshtrees(_array, _id, _liste): void {
@@ -77,9 +78,13 @@ namespace cuztree {
         node.addEventListener("change", refreshcart);
     }
     function adressrefresh(): void {
-        let node: HTMLElement = document.getElementById("adress");        
+        let node: HTMLElement = document.getElementById("adress");
         node.addEventListener("change", refreshcart);
-        
+
+    }
+    function buttonrefresh(): void {
+        let node: HTMLElement = document.getElementById("bebutton");
+        node.addEventListener("click", buttoncheck);
     }
     function refreshcart(_event: MouseEvent): void {
         let changedfield: HTMLElement = <HTMLElement>_event.target;
@@ -97,9 +102,9 @@ namespace cuztree {
         let candlecount = (<HTMLSelectElement>document.getElementById('candle')).value;
         console.log(candlecount);
         let namevalue = (<HTMLSelectElement>document.getElementById('lname')).value;
-        console.log(namevalue);
-        let adressvalue = (<HTMLSelectElement>document.getElementById('lname')).value;
-        console.log(adressvalue);
+        console.log(namevalue + "namevalue");
+        let adressvalue = (<HTMLSelectElement>document.getElementById('street')).value;
+        console.log(adressvalue + "adressvalue");
         if (fieldIDstring == 'baumliste') {
 
             if (baumvalue != '-1') {
@@ -173,11 +178,11 @@ namespace cuztree {
 
                 cart.splice(9, 1, candlecount);
                 console.log(cart.join() + " value kerze");
-                //cartrefresh();
+                cartrefresh();
             } else {
                 cart.splice(9, 1, "0");
                 console.log(cart.join() + " value kerze");
-                //cartrefresh();
+                cartrefresh();
             }
         } else if (fieldIDstring.substr(0, 8) == 'shipment') {
 
@@ -192,9 +197,13 @@ namespace cuztree {
                 cart.splice(10, 2, "0", "0");
                 cartrefresh();
             }
-        }  else if (fieldIDstring == '') {
-            
-        }else {
+        } else if (fieldIDstring == 'lname') {
+            adress.splice(0, 1, namevalue)
+            cartrefresh();
+        } else if (fieldIDstring == 'street') {
+            adress.splice(1, 1, adressvalue)
+            cartrefresh();
+        } else {
             console.log("as if i know what happens");
         }
     }
@@ -203,7 +212,7 @@ namespace cuztree {
         document.getElementById('cart').innerHTML = "";
         let childnode: string = "";
         let gesprice: number = 0;
-            
+
         childnode += "<textarea id='rechnung' readonly cols='70' rows='40'>"
         childnode += "Ausgewaehlter Baum: ";
         if (cart[0] != '0') {
@@ -217,7 +226,7 @@ namespace cuztree {
         }
         childnode += "\nAusgewaehlter Staender: "
         if (cart[2] != '0') {
-            childnode += cart[2]+ " ";
+            childnode += cart[2] + " ";
             let prc: number = Number(cart[3]);
             let price: number = prc;
             let fixedprice: string = price.toFixed(2);
@@ -236,7 +245,7 @@ namespace cuztree {
             let roundedprice: number = Number(fixedprice);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
-            
+
         }
         childnode += "\nAusgewaehlte Kerze: "
         if (cart[7] != '0') {
@@ -249,11 +258,11 @@ namespace cuztree {
             let roundedprice: number = Number(fixedprice);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
-            
+
         }
         childnode += "\nAusgewaehlter: Lieferant: "
         if (cart[10] != '0') {
-            childnode += cart[10]+ " ";
+            childnode += cart[10] + " ";
             let prc: number = Number(cart[11]);
 
             let price: number = prc;
@@ -261,25 +270,35 @@ namespace cuztree {
             let roundedprice: number = Number(fixedprice);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
-            childnode += "</textarea>";
-           
+            
+
+        }
+        childnode += "\nEingegebener Name: "
+        if (adress[0] != '0') {
+            childnode += adress[0] + " ";
+        }
+        childnode += "\nEingegebene Adresse: "
+        if (adress[1] != '0') {
+            childnode += adress[1] + " ";
         }
         let fixedprice: string = gesprice.toFixed(2);
         let roundedgesprice: number = Number(fixedprice);
-        childnode += "\n Gesamter Preis:" + roundedgesprice;
+        childnode += "\nGesamter Preis:" + roundedgesprice;
+        childnode += "</textarea>";
         node.innerHTML += childnode;
-        
+
     }
     function buttoncheck(): void {
-        if (adress[0] == '0' || adress[1] == '0'||cart[10]== '0') {
+        if (adress[0] == '0' || adress[1] == '0' || cart[10] == '0') {
             let node: HTMLElement = document.getElementById("cart");
             document.getElementById('cart').innerHTML = "";
             let childnode: string = "";
             childnode += "fehlende Eingabe";
             node.innerHTML += childnode;
-        }else 
-            document.getElementsByTagName("button")[0].removeAttribute("disabled");
+        } 
+            
     }
+    
     document.addEventListener('DOMContentLoaded', init);
 }
 //document.querySelector("#feld2").removeAttribute("disabled");
