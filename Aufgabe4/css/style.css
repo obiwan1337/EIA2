@@ -1,0 +1,12 @@
+body{
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background-color: hotpink;
+}
+fieldset{
+    max-width: 40%;
+}
+#produkte {
+    max-width:49%;
+    float: left;
+
+}
