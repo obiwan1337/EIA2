@@ -1,12 +1,21 @@
-body{
+*{
     font-family: "Comic Sans MS", "Comic Sans", cursive;
-    background-color: hotpink;
 }
-fieldset{
-    max-width: 40%;
+body {
+    background-color: hotpink;
 }
 #produkte {
     max-width:49%;
     float: left;
 
+}
+#cartadress{
+    max-width:49%;
+    float: left;
+}
+#bebutton {
+    clear: both;
+    position: fixed;
+    bottom: 5px;
+    right: 3%;
 }

@@ -3,20 +3,19 @@ namespace cuztree {
         name: string;
         price: number;
     }
-    let adress: string[] = ["0", "0", "0", "0", "0",];
+    let address: string[] = ["0", "0", "0", "0", "0",];
     let cart: string[] = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",];
     function init(): void {
-        refreshtrees(trees, 'treelist', 'baumliste');
-        refreshstand();
-        bulbrefresh();
-        candlerefresh();
-        shipmentrefresh();
+        refreshlist(trees, 'treelist', 'baumliste');
+        refreshradio(stand, 'standlist', 'ständer');
+        refreshlist(bulbs, 'bulblist', 'kugelliste');
+        refreshlist(candles, 'candlelist', 'kerzenliste');
+        refreshradio(shipment, 'shipmentlist', 'shipment');
         cartrefresh();
-        adressrefresh();
-        buttonrefresh();
+        setEventlistener();
     }
-    console.log(cart);
-    function refreshtrees(_array, _id, _liste): void {
+    function refreshlist(_array, _id, _liste): void
+    {
         let node: HTMLElement = document.getElementById(_id);
         let childnode: string = "";
 
@@ -25,72 +24,38 @@ namespace cuztree {
         for (let i: number = 0; i < _array.length; i++) {
             childnode += "<option value = '" + i + "'>" + _array[i].name + "</option>";
         }
+        if (_liste == 'kugelliste') {
+            childnode += "</br><label for='bulb'></label><input id='bulb' type='number' value='0' min='0' max='20'/>";
+        }else if (_liste=='kerzenliste') {
+            childnode += "</br><label for='candle'></label><input id='candle' type='number' value='0' min='0' max='50'/>";
+        } else { }
         node.innerHTML += childnode;
         node.addEventListener("change", refreshcart);
         console.log(cart);
     }
-    function refreshstand(): void {
-        let node: HTMLElement = document.getElementById("standlist");
+    
+    function refreshradio(_array, _id, _liste): void 
+    {
+        let node: HTMLElement = document.getElementById(_id);
         let childnode: string = "";
-        childnode += " <label><input type='radio' name='standgroupradio' value='Ständer' id='ständer-1'/></label>";
-        for (let i: number = 0; i < stand.length; i++) {
-            childnode += "</br><label><input type='radio' name='standgroupradio' value='Ständer" + i + "'  id='ständer" + i + "' />";
-
-            childnode += stand[i].name + "</label>";
+        childnode += " <label><input type='radio' name='"+_liste+"'groupradio' value='"+ _liste + "' id='" + _liste + "-1'/></label>";
+        for (let i: number = 0; i < _array.length; i++) {
+            childnode += "</br><label><input type='radio' name='"+_liste+"'groupradio' value='" + _liste + i + "'  id='" + _liste + i + "' />";
+            childnode += _array[i].name + "</label>";
         }
         node.innerHTML += childnode;
         node.addEventListener("change", refreshcart);
     }
-    function bulbrefresh(): void {
-        let node: HTMLElement = document.getElementById("bulblist");
-        let childnode: string = "";
-        childnode += "<select id ='kugelliste'>";
-        childnode += "<option value ='-1'></option>";
-        for (let i: number = 0; i < bulbs.length; i++) {
-            childnode += "<option value = '" + i + "' id='bulb" + i + "'>" + bulbs[i].name + "</option>";
-        }
-        childnode += "</br><label for='bulb'></label><input id='bulb' type='number' value='0' min='0' max='20'/>";
-        node.innerHTML += childnode;
+    function setEventlistener(): void {
+        let node: HTMLElement = document.getElementById("address");
         node.addEventListener("change", refreshcart);
-    }
-    function candlerefresh(): void {
-        let node: HTMLElement = document.getElementById("candlelist");
-        let childnode: string = "";
-        childnode += "<select id ='kerzenliste'>";
-        childnode += "<option value = '-1'></option>";
-        for (let i: number = 0; i < candles.length; i++) {
-            childnode += "<option value = '" + i + "'>" + candles[i].name + "</option>";
-        }
-        childnode += "</br><label for='candle'></label><input id='candle' type='number' value='0' min='0' max='50'/>";
-        node.innerHTML += childnode;
-        node.addEventListener("change", refreshcart);
-    }
-    function shipmentrefresh(): void {
-        let node: HTMLElement = document.getElementById("shipmentlist");
-        let childnode: string = "";
-        childnode += " <label><input type='radio' required name='shipgroupradio' value='shipment' id='shipment-1'required/></label>";
-        for (let i: number = 0; i < shipment.length; i++) {
-            childnode += "</br><label><input type='radio'  name='shipgroupradio' value='shipment" + i + "'  id='shipment" + i + "' required/>";
-
-            childnode += shipment[i].name + "</label>";
-        }
-        node.innerHTML += childnode;
-        node.addEventListener("change", refreshcart);
-    }
-    function adressrefresh(): void {
-        let node: HTMLElement = document.getElementById("adress");
-        node.addEventListener("change", refreshcart);
-
-    }
-    function buttonrefresh(): void {
-        let node: HTMLElement = document.getElementById("bebutton");
-        node.addEventListener("click", buttoncheck);
+        let nod: HTMLElement = document.getElementById("bebutton");
+        nod.addEventListener("click", buttoncheck);
     }
     function refreshcart(_event: MouseEvent): void {
         let changedfield: HTMLElement = <HTMLElement>_event.target;
         let fieldIDstring: string = (changedfield.id);
         console.log(fieldIDstring + " fieldstring");
-
         let baumvalue = (<HTMLSelectElement>document.getElementById('baumliste')).value;
         console.log(baumvalue);
         let bulbvalue = (<HTMLSelectElement>document.getElementById('kugelliste')).value;
@@ -103,10 +68,9 @@ namespace cuztree {
         console.log(candlecount);
         let namevalue = (<HTMLSelectElement>document.getElementById('lname')).value;
         console.log(namevalue + "namevalue");
-        let adressvalue = (<HTMLSelectElement>document.getElementById('street')).value;
-        console.log(adressvalue + "adressvalue");
+        let addressvalue = (<HTMLSelectElement>document.getElementById('street')).value;
+        console.log(addressvalue + "addressvalue");
         if (fieldIDstring == 'baumliste') {
-
             if (baumvalue != '-1') {
                 cart.splice(0, 2);
                 cart.splice(0, 0, trees[baumvalue].name);
@@ -118,7 +82,6 @@ namespace cuztree {
                 console.log(cart.join() + " baumsplice");
                 cartrefresh()
             }
-
         } else if (fieldIDstring.substr(0, 7) == 'ständer') {
             var staendernr: string = fieldIDstring.substr(7, 3);
             if (staendernr != '-1') {
@@ -131,8 +94,6 @@ namespace cuztree {
                 cart.splice(2, 2, "0", "0");
                 cartrefresh();
             }
-
-
         } else if (fieldIDstring == 'kugelliste') {
 
             if (bulbvalue != '-1') {
@@ -146,11 +107,8 @@ namespace cuztree {
                 console.log(cart.join() + " staender splicen");
                 cartrefresh();
             }
-
         } else if (fieldIDstring == 'bulb') {
-
             if (bulbcount != '-1') {
-
                 cart.splice(6, 1, bulbcount);
                 console.log(cart.join() + " value kugel");
                 cartrefresh();
@@ -173,9 +131,7 @@ namespace cuztree {
                 cartrefresh();
             }
         } else if (fieldIDstring == 'candle') {
-
             if (candlecount != '0') {
-
                 cart.splice(9, 1, candlecount);
                 console.log(cart.join() + " value kerze");
                 cartrefresh();
@@ -185,7 +141,6 @@ namespace cuztree {
                 cartrefresh();
             }
         } else if (fieldIDstring.substr(0, 8) == 'shipment') {
-
             var shipmentnr: string = fieldIDstring.substr(8, 3);
             if (shipmentnr != '-1') {
                 console.log(shipmentnr + " shipmentnr Nummer");
@@ -198,10 +153,10 @@ namespace cuztree {
                 cartrefresh();
             }
         } else if (fieldIDstring == 'lname') {
-            adress.splice(0, 1, namevalue)
+            address.splice(0, 1, namevalue)
             cartrefresh();
         } else if (fieldIDstring == 'street') {
-            adress.splice(1, 1, adressvalue)
+            address.splice(1, 1, addressvalue)
             cartrefresh();
         } else {
             console.log("as if i know what happens");
@@ -213,13 +168,12 @@ namespace cuztree {
         let childnode: string = "";
         let gesprice: number = 0;
 
-        childnode += "<textarea id='rechnung' readonly cols='70' rows='40'>"
+        childnode += "<textarea id='rechnung' readonly cols='70' rows='20'>"
         childnode += "Ausgewaehlter Baum: ";
         if (cart[0] != '0') {
             childnode += cart[0] + " ";
             let prc: number = Number(cart[1]);
-            let price: number = prc;
-            let fixedprice: string = price.toFixed(2);
+            let fixedprice: string = prc.toFixed(2);
             let roundedprice: number = Number(fixedprice);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
@@ -228,8 +182,7 @@ namespace cuztree {
         if (cart[2] != '0') {
             childnode += cart[2] + " ";
             let prc: number = Number(cart[3]);
-            let price: number = prc;
-            let fixedprice: string = price.toFixed(2);
+            let fixedprice: string = prc.toFixed(2);
             let roundedprice: number = Number(fixedprice);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
@@ -245,7 +198,6 @@ namespace cuztree {
             let roundedprice: number = Number(fixedprice);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
-
         }
         childnode += "\nAusgewaehlte Kerze: "
         if (cart[7] != '0') {
@@ -258,48 +210,42 @@ namespace cuztree {
             let roundedprice: number = Number(fixedprice);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
-
         }
         childnode += "\nAusgewaehlter: Lieferant: "
         if (cart[10] != '0') {
             childnode += cart[10] + " ";
-            let prc: number = Number(cart[11]);
-
-            let price: number = prc;
-            let fixedprice: string = price.toFixed(2);
+            let prc: number = Number(cart[11]);      
+            let fixedprice: string = prc.toFixed(2);
             let roundedprice: number = Number(fixedprice);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
-            
-
         }
         childnode += "\nEingegebener Name: "
-        if (adress[0] != '0') {
-            childnode += adress[0] + " ";
+        if (address[0] != '0') {
+            childnode += address[0];
         }
         childnode += "\nEingegebene Adresse: "
-        if (adress[1] != '0') {
-            childnode += adress[1] + " ";
+        if (address[1] != '0') {
+            childnode += address[1];
         }
         let fixedprice: string = gesprice.toFixed(2);
         let roundedgesprice: number = Number(fixedprice);
         childnode += "\nGesamter Preis:" + roundedgesprice;
         childnode += "</textarea>";
         node.innerHTML += childnode;
-
     }
     function buttoncheck(): void {
-        if (adress[0] == '0' || adress[1] == '0' || cart[10] == '0') {
+        if (address[0] == '0' || address[1] == '0' || cart[10] == '0') {
             let node: HTMLElement = document.getElementById("cart");
             document.getElementById('cart').innerHTML = "";
             let childnode: string = "";
             childnode += "fehlende Eingabe";
             node.innerHTML += childnode;
-        } 
-            
+        } else {
+            cartrefresh();
+        }
+
     }
-    
+
     document.addEventListener('DOMContentLoaded', init);
 }
-//document.querySelector("#feld2").removeAttribute("disabled");
-//document.getElementsByTagName("H1")[0].removeAttribute("class");

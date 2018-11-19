@@ -1,19 +1,17 @@
 var cuztree;
 (function (cuztree) {
-    var adress = ["0", "0", "0", "0", "0",];
+    var address = ["0", "0", "0", "0", "0",];
     var cart = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",];
     function init() {
-        refreshtrees(cuztree.trees, 'treelist', 'baumliste');
-        refreshstand();
-        bulbrefresh();
-        candlerefresh();
-        shipmentrefresh();
+        refreshlist(cuztree.trees, 'treelist', 'baumliste');
+        refreshradio(cuztree.stand, 'standlist', 'ständer');
+        refreshlist(cuztree.bulbs, 'bulblist', 'kugelliste');
+        refreshlist(cuztree.candles, 'candlelist', 'kerzenliste');
+        refreshradio(cuztree.shipment, 'shipmentlist', 'shipment');
         cartrefresh();
-        adressrefresh();
-        buttonrefresh();
+        setEventlistener();
     }
-    console.log(cart);
-    function refreshtrees(_array, _id, _liste) {
+    function refreshlist(_array, _id, _liste) {
         var node = document.getElementById(_id);
         var childnode = "";
         childnode += "<select id ='" + _liste + "'>";
@@ -21,63 +19,33 @@ var cuztree;
         for (var i = 0; i < _array.length; i++) {
             childnode += "<option value = '" + i + "'>" + _array[i].name + "</option>";
         }
+        if (_liste == 'kugelliste') {
+            childnode += "</br><label for='bulb'></label><input id='bulb' type='number' value='0' min='0' max='20'/>";
+        }
+        else if (_liste == 'kerzenliste') {
+            childnode += "</br><label for='candle'></label><input id='candle' type='number' value='0' min='0' max='50'/>";
+        }
+        else { }
         node.innerHTML += childnode;
         node.addEventListener("change", refreshcart);
         console.log(cart);
     }
-    function refreshstand() {
-        var node = document.getElementById("standlist");
+    function refreshradio(_array, _id, _liste) {
+        var node = document.getElementById(_id);
         var childnode = "";
-        childnode += " <label><input type='radio' name='standgroupradio' value='Ständer' id='ständer-1'/></label>";
-        for (var i = 0; i < cuztree.stand.length; i++) {
-            childnode += "</br><label><input type='radio' name='standgroupradio' value='Ständer" + i + "'  id='ständer" + i + "' />";
-            childnode += cuztree.stand[i].name + "</label>";
+        childnode += " <label><input type='radio' name='" + _liste + "'groupradio' value='" + _liste + "' id='" + _liste + "-1'/></label>";
+        for (var i = 0; i < _array.length; i++) {
+            childnode += "</br><label><input type='radio' name='" + _liste + "'groupradio' value='" + _liste + i + "'  id='" + _liste + i + "' />";
+            childnode += _array[i].name + "</label>";
         }
         node.innerHTML += childnode;
         node.addEventListener("change", refreshcart);
     }
-    function bulbrefresh() {
-        var node = document.getElementById("bulblist");
-        var childnode = "";
-        childnode += "<select id ='kugelliste'>";
-        childnode += "<option value ='-1'></option>";
-        for (var i = 0; i < cuztree.bulbs.length; i++) {
-            childnode += "<option value = '" + i + "' id='bulb" + i + "'>" + cuztree.bulbs[i].name + "</option>";
-        }
-        childnode += "</br><label for='bulb'></label><input id='bulb' type='number' value='0' min='0' max='20'/>";
-        node.innerHTML += childnode;
+    function setEventlistener() {
+        var node = document.getElementById("address");
         node.addEventListener("change", refreshcart);
-    }
-    function candlerefresh() {
-        var node = document.getElementById("candlelist");
-        var childnode = "";
-        childnode += "<select id ='kerzenliste'>";
-        childnode += "<option value = '-1'></option>";
-        for (var i = 0; i < cuztree.candles.length; i++) {
-            childnode += "<option value = '" + i + "'>" + cuztree.candles[i].name + "</option>";
-        }
-        childnode += "</br><label for='candle'></label><input id='candle' type='number' value='0' min='0' max='50'/>";
-        node.innerHTML += childnode;
-        node.addEventListener("change", refreshcart);
-    }
-    function shipmentrefresh() {
-        var node = document.getElementById("shipmentlist");
-        var childnode = "";
-        childnode += " <label><input type='radio' required name='shipgroupradio' value='shipment' id='shipment-1'required/></label>";
-        for (var i = 0; i < cuztree.shipment.length; i++) {
-            childnode += "</br><label><input type='radio'  name='shipgroupradio' value='shipment" + i + "'  id='shipment" + i + "' required/>";
-            childnode += cuztree.shipment[i].name + "</label>";
-        }
-        node.innerHTML += childnode;
-        node.addEventListener("change", refreshcart);
-    }
-    function adressrefresh() {
-        var node = document.getElementById("adress");
-        node.addEventListener("change", refreshcart);
-    }
-    function buttonrefresh() {
-        var node = document.getElementById("bebutton");
-        node.addEventListener("click", buttoncheck);
+        var nod = document.getElementById("bebutton");
+        nod.addEventListener("click", buttoncheck);
     }
     function refreshcart(_event) {
         var changedfield = _event.target;
@@ -95,8 +63,8 @@ var cuztree;
         console.log(candlecount);
         var namevalue = document.getElementById('lname').value;
         console.log(namevalue + "namevalue");
-        var adressvalue = document.getElementById('street').value;
-        console.log(adressvalue + "adressvalue");
+        var addressvalue = document.getElementById('street').value;
+        console.log(addressvalue + "addressvalue");
         if (fieldIDstring == 'baumliste') {
             if (baumvalue != '-1') {
                 cart.splice(0, 2);
@@ -192,11 +160,11 @@ var cuztree;
             }
         }
         else if (fieldIDstring == 'lname') {
-            adress.splice(0, 1, namevalue);
+            address.splice(0, 1, namevalue);
             cartrefresh();
         }
         else if (fieldIDstring == 'street') {
-            adress.splice(1, 1, adressvalue);
+            address.splice(1, 1, addressvalue);
             cartrefresh();
         }
         else {
@@ -208,13 +176,12 @@ var cuztree;
         document.getElementById('cart').innerHTML = "";
         var childnode = "";
         var gesprice = 0;
-        childnode += "<textarea id='rechnung' readonly cols='70' rows='40'>";
+        childnode += "<textarea id='rechnung' readonly cols='70' rows='20'>";
         childnode += "Ausgewaehlter Baum: ";
         if (cart[0] != '0') {
             childnode += cart[0] + " ";
             var prc = Number(cart[1]);
-            var price = prc;
-            var fixedprice_1 = price.toFixed(2);
+            var fixedprice_1 = prc.toFixed(2);
             var roundedprice = Number(fixedprice_1);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
@@ -223,8 +190,7 @@ var cuztree;
         if (cart[2] != '0') {
             childnode += cart[2] + " ";
             var prc = Number(cart[3]);
-            var price = prc;
-            var fixedprice_2 = price.toFixed(2);
+            var fixedprice_2 = prc.toFixed(2);
             var roundedprice = Number(fixedprice_2);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
@@ -257,19 +223,18 @@ var cuztree;
         if (cart[10] != '0') {
             childnode += cart[10] + " ";
             var prc = Number(cart[11]);
-            var price = prc;
-            var fixedprice_5 = price.toFixed(2);
+            var fixedprice_5 = prc.toFixed(2);
             var roundedprice = Number(fixedprice_5);
             childnode += " Preis: " + roundedprice;
             gesprice += roundedprice;
         }
         childnode += "\nEingegebener Name: ";
-        if (adress[0] != '0') {
-            childnode += adress[0] + " ";
+        if (address[0] != '0') {
+            childnode += address[0];
         }
         childnode += "\nEingegebene Adresse: ";
-        if (adress[1] != '0') {
-            childnode += adress[1] + " ";
+        if (address[1] != '0') {
+            childnode += address[1];
         }
         var fixedprice = gesprice.toFixed(2);
         var roundedgesprice = Number(fixedprice);
@@ -278,12 +243,15 @@ var cuztree;
         node.innerHTML += childnode;
     }
     function buttoncheck() {
-        if (adress[0] == '0' || adress[1] == '0' || cart[10] == '0') {
+        if (address[0] == '0' || address[1] == '0' || cart[10] == '0') {
             var node = document.getElementById("cart");
             document.getElementById('cart').innerHTML = "";
             var childnode = "";
             childnode += "fehlende Eingabe";
             node.innerHTML += childnode;
+        }
+        else {
+            cartrefresh();
         }
     }
     document.addEventListener('DOMContentLoaded', init);
