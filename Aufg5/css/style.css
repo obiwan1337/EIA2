@@ -1,0 +1,9 @@
+#produkte {
+    width: 45%;
+    float:left;
+}
+#einkaufswagen {
+    width: 45%;
+    position: fixed;
+    top: 2%;
+}
