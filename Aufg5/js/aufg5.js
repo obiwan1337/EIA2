@@ -58,10 +58,7 @@ var baumbaum;
                 var nameattribute_1 = input.getAttribute("product");
                 var priceattribute_1 = input.getAttribute("price");
                 var price = parseFloat(priceattribute_1);
-                //let stepvalue = stepperinput.getAttribute("value");
-                //let stepvaluenumber = Number(stepvalue);
-                childnode += "\nGewaehleter Artikel: " + nameattribute_1 + " " + priceattribute_1 + " Anzahl: 1"; // + stepvaluenumber;
-                roundedprice += price;
+                childnode += "\nGewaehleter Artikel: " + nameattribute_1 + " " + priceattribute_1 + " Anzahl: 1";
             }
             else if (input.value >= '1' && input.type == 'number') {
                 var nameattribute = input.getAttribute("product");
@@ -103,7 +100,7 @@ var baumbaum;
         }
         name.value;
         adress.value;
-        if (name.value == '' || name.value == '' || mail == 0) {
+        if (name.value == '' || adress.value == '' || mail == 0) {
             var cart = document.getElementById("rechnung");
             cart.innerHTML += "\nbitte eine Adresse und einen Lieferservice auswahlen.";
         }

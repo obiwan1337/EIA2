@@ -43,7 +43,7 @@ namespace baumbaum {
         }
         document.getElementsByTagName("fieldset")[_numFS].innerHTML += childnode;
     }
-    function showdebill(){
+    function showdebill() {
         let list: HTMLCollectionOf<HTMLInputElement> = document.getElementById("form1").getElementsByTagName("input");
         let node: HTMLElement = document.getElementById("cart");
         document.getElementById('cart').innerHTML = "";
@@ -59,10 +59,7 @@ namespace baumbaum {
                 let nameattribute: string = input.getAttribute("product");
                 let priceattribute: string = input.getAttribute("price");
                 let price: number = parseFloat(priceattribute);
-                //let stepvalue = stepperinput.getAttribute("value");
-                //let stepvaluenumber = Number(stepvalue);
-                childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: 1";// + stepvaluenumber;
-                roundedprice += price;
+                childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: 1";
             } else if (input.value >= '1' && input.type == 'number') {
                 var nameattribute = input.getAttribute("product");
                 var priceattribute = input.getAttribute("price");
@@ -99,7 +96,7 @@ namespace baumbaum {
         }
         name.value;
         adress.value;
-        if (name.value == '' || name.value == '' || mail == 0) {
+        if (name.value == '' || adress.value == '' || mail == 0) {
             let cart: HTMLElement = document.getElementById("rechnung");
             cart.innerHTML += "\nbitte eine Adresse und einen Lieferservice auswahlen.";
         } else {
@@ -107,5 +104,4 @@ namespace baumbaum {
             cart.innerHTML += "\nVielen Dank fuer die Bestellung.";
         }
     }
-
 }
