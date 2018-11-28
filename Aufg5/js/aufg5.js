@@ -6,29 +6,22 @@ var baumbaum;
         createadress();
         showdebill();
     }
-    var xIDvariable;
     function disp(_ding) {
         var numFS = -1;
         for (var key in _ding) {
             numFS++;
-            xIDvariable = key;
-            console.log(xIDvariable + " IDvariable");
             var value = _ding[key];
             var form = document.getElementById("form1");
             var fieldset = document.createElement("fieldset");
             form.appendChild(fieldset);
             var legend = document.createElement("legend");
             legend.innerText = key.toString();
-            var childnode = "";
             fieldset.appendChild(legend);
             document.getElementById("form1").appendChild(fieldset);
             fieldset.addEventListener("change", handleClick);
-            fieldset.innerHTML += childnode;
-            childnode = "";
             for (var i = 0; i < value.length; i++) {
                 createinputoption(value[i], key, numFS, i);
             }
-            fieldset.innerHTML += childnode;
         }
     }
     function createinputoption(_item, _key, _numFS, _i) {
@@ -46,10 +39,10 @@ var baumbaum;
     function showdebill() {
         var list = document.getElementById("form1").getElementsByTagName("input");
         var node = document.getElementById("cart");
-        document.getElementById('cart').innerHTML = "";
         var childnode = "";
         var gesprice = 0;
         var roundedprice = 0;
+        document.getElementById('cart').innerHTML = "";
         childnode += "<textarea id='rechnung' readonly cols='70' rows='20'> ";
         for (var i = 0; i < list.length; i++) {
             var input = list[i];
@@ -69,12 +62,10 @@ var baumbaum;
                 roundedprice += price * count;
             }
             else {
-                console.log("trollgesicht");
             }
         }
         gesprice += roundedprice;
-        childnode += " \nGesamtpreis: " + gesprice.toFixed(2);
-        childnode += " </textarea>";
+        childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + "</textarea>";
         node.innerHTML += childnode;
     }
     function handleClick(_event) {
@@ -91,15 +82,13 @@ var baumbaum;
     }
     function checkout() {
         var name = document.getElementById("lname");
-        var adress = document.getElementById("street");
+        var address = document.getElementById("street");
         var mailboy = document.getElementById("mailboy");
         var mail = 0;
         if (mailboy.checked == true) {
             mail = 1;
         }
-        name.value;
-        adress.value;
-        if (name.value == '' || adress.value == '' || mail == 0) {
+        if (name.value == '' || address.value == '' || mail == 0) {
             var cart = document.getElementById("rechnung");
             cart.innerHTML += "\nbitte eine Adresse und einen Lieferservice auswahlen.";
         }

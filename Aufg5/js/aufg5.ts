@@ -5,33 +5,25 @@ namespace baumbaum {
         createadress();
         showdebill();
     }
-    let xIDvariable: string;
     function disp(_ding: Products): void {
         let numFS: number = -1;
         for (let key in _ding) {
             numFS++;
-            xIDvariable = key;
-            console.log(xIDvariable + " IDvariable");
             let value: Items[] = _ding[key];
             let form: HTMLElement = document.getElementById("form1");
             let fieldset: HTMLFieldSetElement = document.createElement("fieldset");
             form.appendChild(fieldset);
             let legend: HTMLLegendElement = document.createElement("legend");
             legend.innerText = key.toString();
-            let childnode: string = "";
             fieldset.appendChild(legend);
             document.getElementById("form1").appendChild(fieldset);
             fieldset.addEventListener("change", handleClick);
-            fieldset.innerHTML += childnode;
-            childnode = "";
             for (let i: number = 0; i < value.length; i++) {
                 createinputoption(value[i], key, numFS, i);
             }
-            fieldset.innerHTML += childnode;
         }
     }
     function createinputoption(_item: Items, _key: string, _numFS: number, _i: number): void {
-
         let inputtype: string, childnode: string = "";
         if (_key == 'trees' || _key == 'stand' || _key == 'mailboy') {
             inputtype = "radio";
@@ -45,15 +37,13 @@ namespace baumbaum {
     function showdebill() {
         let list: HTMLCollectionOf<HTMLInputElement> = document.getElementById("form1").getElementsByTagName("input");
         let node: HTMLElement = document.getElementById("cart");
-        document.getElementById('cart').innerHTML = "";
         let childnode: string = "";
         let gesprice: number = 0;
         let roundedprice: number = 0;
+        document.getElementById('cart').innerHTML = "";
         childnode += "<textarea id='rechnung' readonly cols='70' rows='20'> "
-
         for (let i: number = 0; i < list.length; i++) {
             let input = (<HTMLInputElement>list[i]);
-
             if (input.checked == true) {
                 let nameattribute: string = input.getAttribute("product");
                 let priceattribute: string = input.getAttribute("price");
@@ -68,12 +58,10 @@ namespace baumbaum {
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: " + count;
                 roundedprice += price * count;
             } else {
-                console.log("trollgesicht");
             }
         }
         gesprice += roundedprice;
-        childnode += " \nGesamtpreis: " + gesprice.toFixed(2);
-        childnode += " </textarea>";
+        childnode += " \nGesamtpreis: " + gesprice.toFixed(2) +  "</textarea>";
         node.innerHTML += childnode;
     }
     function handleClick(_event: MouseEvent): void {
@@ -87,15 +75,13 @@ namespace baumbaum {
     }
     function checkout() {
         var name: HTMLInputElement = <HTMLInputElement>document.getElementById("lname");
-        var adress: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
+        var address: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
         var mailboy: HTMLInputElement = <HTMLInputElement>document.getElementById("mailboy");
         var mail: number = 0;
         if (mailboy.checked == true) {
             mail = 1;
         }
-        name.value;
-        adress.value;
-        if (name.value == '' || adress.value == '' || mail == 0) {
+        if (name.value == '' || address.value == '' || mail == 0) {
             let cart: HTMLElement = document.getElementById("rechnung");
             cart.innerHTML += "\nbitte eine Adresse und einen Lieferservice auswahlen.";
         } else {
