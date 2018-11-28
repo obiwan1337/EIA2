@@ -46,3 +46,4 @@ var baumbaum;
         ]
     };
 })(baumbaum || (baumbaum = {}));
+//# sourceMappingURL=Daten.js.map

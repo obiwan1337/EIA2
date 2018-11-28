@@ -7,3 +7,7 @@
     position: fixed;
     top: 2%;
 }
+body{
+    background-color: hotpink;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
