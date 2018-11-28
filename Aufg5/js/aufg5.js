@@ -7,7 +7,6 @@ var baumbaum;
         showdebill();
     }
     var xIDvariable;
-    var childnumber;
     function disp(_ding) {
         var numFS = -1;
         for (var key in _ding) {
@@ -59,13 +58,13 @@ var baumbaum;
                 var priceattribute_1 = input.getAttribute("price");
                 var price = parseFloat(priceattribute_1);
                 childnode += "\nGewaehleter Artikel: " + nameattribute_1 + " " + priceattribute_1 + " Anzahl: 1";
+                roundedprice += price;
             }
             else if (input.value >= '1' && input.type == 'number') {
                 var nameattribute = input.getAttribute("product");
                 var priceattribute = input.getAttribute("price");
                 var price = parseFloat(priceattribute);
                 var count = Number(input.value);
-                roundedprice;
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: " + count;
                 roundedprice += price * count;
             }

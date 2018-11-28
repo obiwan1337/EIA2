@@ -6,7 +6,6 @@ namespace baumbaum {
         showdebill();
     }
     let xIDvariable: string;
-    let childnumber: number;
     function disp(_ding: Products): void {
         let numFS: number = -1;
         for (let key in _ding) {
@@ -60,12 +59,12 @@ namespace baumbaum {
                 let priceattribute: string = input.getAttribute("price");
                 let price: number = parseFloat(priceattribute);
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: 1";
+                roundedprice += price;
             } else if (input.value >= '1' && input.type == 'number') {
-                var nameattribute = input.getAttribute("product");
-                var priceattribute = input.getAttribute("price");
+                var nameattribute: string = input.getAttribute("product");
+                var priceattribute: string = input.getAttribute("price");
                 let price: number = parseFloat(priceattribute);
                 var count = Number(input.value);
-                roundedprice
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: " + count;
                 roundedprice += price * count;
             } else {
