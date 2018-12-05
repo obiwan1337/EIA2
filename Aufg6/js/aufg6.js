@@ -7,25 +7,25 @@ var baum;
         showdebill();
     }
     function disp(_products) {
-        var numFS = -1;
-        for (var key in _products) {
+        let numFS = -1;
+        for (let key in _products) {
             numFS++;
-            var value = _products[key];
-            var form = document.getElementById("form1");
-            var fieldset = document.createElement("fieldset");
+            let value = _products[key];
+            let form = document.getElementById("form1");
+            let fieldset = document.createElement("fieldset");
             form.appendChild(fieldset);
-            var legend = document.createElement("legend");
+            let legend = document.createElement("legend");
             legend.innerText = key.toString();
             fieldset.appendChild(legend);
             document.getElementById("form1").appendChild(fieldset);
             fieldset.addEventListener("change", handleClick);
-            for (var i = 0; i < value.length; i++) {
+            for (let i = 0; i < value.length; i++) {
                 createinputoption(value[i], key, numFS, i);
             }
         }
     }
     function createinputoption(_item, _key, _numFS, _i) {
-        var inputtype, childnode = "";
+        let inputtype, childnode = "";
         if (_key == 'trees' || _key == 'stand' || _key == 'mailboy') {
             inputtype = "radio";
             childnode += " <label><input type='" + inputtype + "' name='" + _key + "groupradio' product='" + _item.name + "' price='" + _item.price + "' value='" + _item.name + "' id='" + _key + "' />" + _item.name + "  (" + _item.price + ")" + "</label></br>";
@@ -37,26 +37,26 @@ var baum;
         document.getElementsByTagName("fieldset")[_numFS].innerHTML += childnode;
     }
     function showdebill() {
-        var list = document.getElementById("form1").getElementsByTagName("input");
-        var node = document.getElementById("cart");
-        var childnode = "";
-        var gesprice = 0;
-        var roundedprice = 0;
+        let list = document.getElementById("form1").getElementsByTagName("input");
+        let node = document.getElementById("cart");
+        let childnode = "";
+        let gesprice = 0;
+        let roundedprice = 0;
         document.getElementById('cart').innerHTML = "";
         childnode += "<textarea id='rechnung' readonly cols='70' rows='20'> ";
-        for (var i = 0; i < list.length; i++) {
-            var input = list[i];
+        for (let i = 0; i < list.length; i++) {
+            let input = list[i];
             if (input.checked == true) {
-                var nameattribute_1 = input.getAttribute("product");
-                var priceattribute_1 = input.getAttribute("price");
-                var price = parseFloat(priceattribute_1);
-                childnode += "\nGewaehleter Artikel: " + nameattribute_1 + " " + priceattribute_1 + " Anzahl: 1";
+                let nameattribute = input.getAttribute("product");
+                let priceattribute = input.getAttribute("price");
+                let price = parseFloat(priceattribute);
+                childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: 1";
                 roundedprice += price;
             }
             else if (input.value >= '1' && input.type == 'number') {
                 var nameattribute = input.getAttribute("product");
                 var priceattribute = input.getAttribute("price");
-                var price = parseFloat(priceattribute);
+                let price = parseFloat(priceattribute);
                 var count = Number(input.value);
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: " + count;
                 roundedprice += price * count;
@@ -72,12 +72,12 @@ var baum;
         showdebill();
     }
     function createadress() {
-        var node = document.getElementById("form2");
-        var childnode = "";
+        let node = document.getElementById("form2");
+        let childnode = "";
         childnode += "<fieldset id=address><legend>Lieferadresse</legend> Name:   <input id='lname' type='text' name='lname' required=''><br> Straße: <input id=street type='text'  name='street' required=''> <br></fieldset>";
         node.innerHTML += childnode;
         node.addEventListener("change", handleClick);
-        var nod = document.getElementById("bebutton");
+        let nod = document.getElementById("bebutton");
         nod.addEventListener("click", checkout);
     }
     function checkout() {
@@ -89,11 +89,11 @@ var baum;
             mail = 1;
         }
         if (name.value == '' || address.value == '' || mail == 0) {
-            var cart = document.getElementById("rechnung");
+            let cart = document.getElementById("rechnung");
             cart.innerHTML += "\nbitte eine Adresse und einen Lieferservice auswahlen.";
         }
         else {
-            var cart = document.getElementById("rechnung");
+            let cart = document.getElementById("rechnung");
             cart.innerHTML += "\nVielen Dank fuer die Bestellung.";
         }
     }
