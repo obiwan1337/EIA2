@@ -24,16 +24,16 @@ namespace baum7 {
 
         let query: object = Qs.parse(_request.url.toString());
         let counter: number = 1;
-        _response.write("<div id='serverresponse' >")
-        for (let key in query) {
+        _response.write("text");
+         for (let key in query) {
             console.log(key);
             console.log(query[key]);
-            _response.write("<p> " + key + " = " + query[key] + " </p>");
-
+            //_response.write("<p> " + key + " = " + query[key] + " </p> ");
+            
            /*  let jsonString: string = JSON.stringify(url.query);
-            _response.write(jsonString); */ 
+            _response.write(jsonString);*/
         }
-        _response.write("</div>");
+        
         _response.end();
 
     }

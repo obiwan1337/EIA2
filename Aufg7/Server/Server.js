@@ -21,15 +21,14 @@ var baum7;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let query = Qs.parse(_request.url.toString());
         let counter = 1;
-        _response.write("<div id='serverresponse' >");
+        _response.write("text");
         for (let key in query) {
             console.log(key);
             console.log(query[key]);
-            _response.write("<p> " + key + " = " + query[key] + " </p>");
+            //_response.write("<p> " + key + " = " + query[key] + " </p> ");
             /*  let jsonString: string = JSON.stringify(url.query);
-             _response.write(jsonString); */
+             _response.write(jsonString);*/
         }
-        _response.write("</div>");
         _response.end();
     }
 })(baum7 || (baum7 = {}));

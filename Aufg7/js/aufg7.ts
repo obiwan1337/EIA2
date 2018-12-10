@@ -1,12 +1,12 @@
 namespace baum7 {
     document.addEventListener('DOMContentLoaded', init);
-    let address: string = "http://localhost:8100";
+    let address: string = "https://testappobiwan.herokuapp.com/";
     let querystring: string = "";
     function init() {
         disp(baumarray);
         createadress();
         showdebill();
-        
+
     }
     function disp(_products: Products): void {
         let numFS: number = -1;
@@ -45,10 +45,11 @@ namespace baum7 {
         let gesprice: number = 0;
         let roundedprice: number = 0;
         document.getElementById('cart').innerHTML = "";
-        childnode += "<textarea id='rechnung' readonly cols='70' rows='20'> "
+        childnode += "<textarea id='rechnung' readonly cols='70' rows='20'> ";
+        let prodgrp: string;
         for (let i: number = 0; i < list.length; i++) {
             let input = (<HTMLInputElement>list[i]);
-            let prodgrp: string;
+           
             if (input.checked == true) {
                 let nameattribute: string = input.getAttribute("product");
                 let priceattribute: string = input.getAttribute("price");
@@ -65,28 +66,36 @@ namespace baum7 {
                 var count = Number(input.value);
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: " + count;
                 roundedprice += price * count;
-                querystring += prodgrp + "=" + nameattribute + "=" + count +"&";
+                querystring += prodgrp + "=" + nameattribute + "=" + count + "&";
             } else {
             }
         }
         gesprice += roundedprice;
         childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + "</textarea>";
-        let nameinput = document.getElementById("lname").getAttribute("value");
-        let streetinput = document.getElementById("lname").getAttribute("value");
-        console.log(nameinput + streetinput);
+        let nameinput: HTMLInputElement = <HTMLInputElement>document.getElementById("lname");
+        let streetinput: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
+        if (nameinput.value != '') {
+            querystring += nameinput.id + "=" + nameinput.value + "&";
+        }
+        if (streetinput.value != '') {
+            querystring += streetinput.id + "=" + streetinput.value + "&";
+        }
         node.innerHTML += childnode;
     }
 
     function handleClick(_event: MouseEvent): void {
         showdebill();
     }
-    
+
     function sendRequestWithCustomData(): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?" + querystring, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
         console.log(querystring);
+        let divele: HTMLDivElement = document.createElement("div");
+        document.getElementById("form2").appendChild(divele);
+        divele.innerHTML = xhr.response;
     }
 
     function handleStateChange(_event: ProgressEvent): void {
@@ -94,6 +103,7 @@ namespace baum7 {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
             console.log("response: " + xhr.response);
+            
         }
     }
     function createadress() {

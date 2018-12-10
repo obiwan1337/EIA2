@@ -1,7 +1,7 @@
 var baum7;
 (function (baum7) {
     document.addEventListener('DOMContentLoaded', init);
-    let address = "http://localhost:8100";
+    let address = "https://testappobiwan.herokuapp.com/";
     let querystring = "";
     function init() {
         disp(baum7.baumarray);
@@ -47,9 +47,9 @@ var baum7;
         let roundedprice = 0;
         document.getElementById('cart').innerHTML = "";
         childnode += "<textarea id='rechnung' readonly cols='70' rows='20'> ";
+        let prodgrp;
         for (let i = 0; i < list.length; i++) {
             let input = list[i];
-            let prodgrp;
             if (input.checked == true) {
                 let nameattribute = input.getAttribute("product");
                 let priceattribute = input.getAttribute("price");
@@ -74,9 +74,14 @@ var baum7;
         }
         gesprice += roundedprice;
         childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + "</textarea>";
-        let nameinput = document.getElementById("lname").getAttribute("value");
-        let streetinput = document.getElementById("lname").getAttribute("value");
-        console.log(nameinput + streetinput);
+        let nameinput = document.getElementById("lname");
+        let streetinput = document.getElementById("street");
+        if (nameinput.value != '') {
+            querystring += nameinput.id + "=" + nameinput.value + "&";
+        }
+        if (streetinput.value != '') {
+            querystring += streetinput.id + "=" + streetinput.value + "&";
+        }
         node.innerHTML += childnode;
     }
     function handleClick(_event) {
@@ -88,6 +93,9 @@ var baum7;
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
         console.log(querystring);
+        let divele = document.createElement("div");
+        document.getElementById("form2").appendChild(divele);
+        divele.innerHTML = xhr.response;
     }
     function handleStateChange(_event) {
         var xhr = _event.target;
