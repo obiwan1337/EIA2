@@ -26,25 +26,26 @@ namespace L06_SendData { // voll nice ein namespace
         let query: object = Qs.parse(_request.url.toString());
         let counter: number = 1;
         for (let key in query) {
-            console.log(key)
-            
-                if (key == '/?treesgroupradio' || key == '/?standgroupradio' || key == 'mailboygroupradio' || key == 'standgroupradio') {
-                    _response.write("<p>Produktname: " + query[key] + " </p>");
-                } else if (key == 'lname') {
-                    _response.write("<p>Name: " + query[key] + " </p>");
-                } else if (key == 'street') {
-                    _response.write("<p>Strasse: " + query[key] + " </p>");
-                } else if (query[key] == 0) {
-                } else {
-                    _response.write("<p>Produktname: " + key + " Anzahl: " + query[key] + " </p>");
-                }
-            }
-            console.log("I hear voices!");// Die Konsole hoert Stimmen... sollte evtl zum Psychiater... und den Akuten befall von Comic Sans behandeln lassen.
-            //diese Zeile wollte nicht beschrieben werden.
-            //Diese Leerzeile wird Ihnen praesentiert von Seitenbacher.
-            //_response.write(_request.url);// Die request.url wird an den Header mitgegeben. "The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body." 
-            // Seitenbacher Leerzeilen, NUR von Seitenbacher. 
-            _response.end(); //reponse wird be.endet. Signaliesiert dem Server das alles gesendet wurde und die Nachricht komplett ist. 
+            console.log(key);
+            console.log(query[key]);
+            _response.write("<p> " + key + " = " + query[key] + " </p>");
+            /*if (key == '/?treesgroupradio' || key == '/?standgroupradio' || key == 'mailboygroupradio' || key == 'standgroupradio') {
+                _response.write("<p>Produktname: " + query[key] + " </p>");
+            } else if (key == 'lname') {
+                _response.write("<p>Name: " + query[key] + " </p>");
+            } else if (key == 'street') {
+                _response.write("<p>Strasse: " + query[key] + " </p>");
+            } else if (query[key] == 0) {
+            } else {
+                _response.write("<p>Produktname: " + key + " Anzahl: " + query[key] + " </p>");
+            }*/
         }
+        //console.log("I hear voices!");// Die Konsole hoert Stimmen... sollte evtl zum Psychiater... und den Akuten befall von Comic Sans behandeln lassen.
+        //diese Zeile wollte nicht beschrieben werden.
+        //Diese Leerzeile wird Ihnen praesentiert von Seitenbacher.
+        //_response.write(_request.url);// Die request.url wird an den Header mitgegeben. "The first time response.write() is called, it will send the buffered header information and the first chunk of the body to the client. The second time response.write() is called, Node.js assumes data will be streamed, and sends the new data separately. That is, the response is buffered up to the first chunk of the body." 
+        // Seitenbacher Leerzeilen, NUR von Seitenbacher. 
+        _response.end();//reponse wird be.endet. Signaliesiert dem Server das alles gesendet wurde und die Nachricht komplett ist. 
     }
-    
+
+}
