@@ -1,6 +1,7 @@
 namespace baum7 {
     document.addEventListener('DOMContentLoaded', init);
     let address: string = "http://localhost:8100";
+    let querystring: string = "";
     function init() {
         disp(baumarray);
         createadress();
@@ -29,14 +30,15 @@ namespace baum7 {
         let inputtype: string, childnode: string = "";
         if (_key == 'trees' || _key == 'stand' || _key == 'mailboy') {
             inputtype = "radio";
-            childnode += " <label><input type='" + inputtype + "' name='" + _key + "groupradio' product='" + _item.name + "' price='" + _item.price + "' value='" + _item.name + "' id='" + _key + "' />" + _item.name + "  (" + _item.price + ")" + "</label></br>";
+            childnode += " <label><input type='" + inputtype + "' name='" + _key + "groupradio' product='" + _item.name + "' price='" + _item.price + "' value='" + _item.name + "' prodgrp='" + _key + "'+ id='" + _key + _i + "' />" + _item.name + "  (" + _item.price + ")" + "</label></br>";
         } else {
-            childnode += "<input type='number'  class='stepper' id='" + _key + _i + "' name='" + _item.name + "' product='" + _item.name + "' price='" + _item.price + "' min='0' max='40' value='0' />  ";
+            childnode += "<input type='number'  class='stepper' id='" + _key + _i + "' name='" + _item.name + "'prodgrp='" + _key + "' product='" + _item.name + "' price='" + _item.price + "' min='0' max='40' value='0' />  ";
             childnode += _item.name + " (" + _item.price + ") </br>";
         }
         document.getElementsByTagName("fieldset")[_numFS].innerHTML += childnode;
     }
     function showdebill() {
+        querystring = "";
         let list: HTMLCollectionOf<HTMLInputElement> = document.getElementById("form1").getElementsByTagName("input");
         let node: HTMLElement = document.getElementById("cart");
         let childnode: string = "";
@@ -46,27 +48,32 @@ namespace baum7 {
         childnode += "<textarea id='rechnung' readonly cols='70' rows='20'> "
         for (let i: number = 0; i < list.length; i++) {
             let input = (<HTMLInputElement>list[i]);
+            let prodgrp: string;
             if (input.checked == true) {
                 let nameattribute: string = input.getAttribute("product");
                 let priceattribute: string = input.getAttribute("price");
+                prodgrp = input.getAttribute("prodgrp");
                 let price: number = parseFloat(priceattribute);
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: 1";
                 roundedprice += price;
+                querystring += prodgrp + "=" + nameattribute + "&";
             } else if (input.value >= '1' && input.type == 'number') {
                 var nameattribute: string = input.getAttribute("product");
                 var priceattribute: string = input.getAttribute("price");
+                prodgrp = input.getAttribute("prodgrp");
                 let price: number = parseFloat(priceattribute);
                 var count = Number(input.value);
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: " + count;
                 roundedprice += price * count;
+                querystring += prodgrp + "=" + nameattribute + "=" + count +"&";
             } else {
             }
         }
         gesprice += roundedprice;
-        childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + "</textarea>";
+        childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + querystring + "</textarea>";
         node.innerHTML += childnode;
     }
-    
+
     function handleClick(_event: MouseEvent): void {
         showdebill();
     }
@@ -76,16 +83,16 @@ namespace baum7 {
     }
 
     function handleClickOnAsync(_event: Event): void {
-        let color: string = (<HTMLInputElement>document.querySelector(":checked")).value;
-        sendRequestWithCustomData(color);
+        let wert: string = (<HTMLInputElement>document.querySelector(":checked")).value;
+        sendRequestWithCustomData(wert);
     }
 
-    function sendRequestWithCustomData(_color: string): void {
+    function sendRequestWithCustomData(_wert: string): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?color=" + _color, true);
+        xhr.open("GET", address + "/?" + querystring, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
-        console.log(_color)
+        console.log(querystring);
     }
 
     function handleStateChange(_event: ProgressEvent): void {
@@ -100,7 +107,7 @@ namespace baum7 {
         childnode += "<fieldset id=address><legend>Lieferadresse</legend> Name:   <input id='lname' type='text' name='lname' required=''><br> Straße: <input id=street type='text'  name='street' required=''> <br></fieldset>";
         node.innerHTML += childnode; node.addEventListener("change", handleClick);
         let nod: HTMLElement = document.getElementById("bebutton"); nod.addEventListener("click", checkout);
-        let async: HTMLElement = document.getElementById("asaync"); async.addEventListener("click", handleClickOnAsync);
+        let async: HTMLElement = document.getElementById("async"); async.addEventListener("click", handleClickOnAsync);
     }
     function checkout() {
         var name: HTMLInputElement = <HTMLInputElement>document.getElementById("lname");

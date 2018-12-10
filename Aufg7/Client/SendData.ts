@@ -10,7 +10,7 @@ namespace baum7 {
 
     function setupAsyncForm(): void {
         let button: Element = document.querySelector("[type=button]");
-        button.addEventListener("click", h );
+        button.addEventListener("click", handleClickOnAsync );
     }
 
     function handleClickOnAsync(_event: Event): void {

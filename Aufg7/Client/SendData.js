@@ -9,7 +9,7 @@ var baum7;
     }
     function setupAsyncForm() {
         let button = document.querySelector("[type=button]");
-        button.addEventListener("click", h);
+        button.addEventListener("click", handleClickOnAsync);
     }
     function handleClickOnAsync(_event) {
         let color = document.querySelector(":checked").value;
