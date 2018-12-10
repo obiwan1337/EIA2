@@ -115,13 +115,13 @@ namespace baum7 {
     }
     function checkout() {
         var name: HTMLInputElement = <HTMLInputElement>document.getElementById("lname");
-        var address: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
+        var street: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
         var mailboy: HTMLInputElement = <HTMLInputElement>document.getElementById("mailboy");
         var mail: number = 0;
         if (mailboy.checked == true) {
             mail = 1;
         }
-        if (name.value == '' || address.value == '' || mail == 0) {
+        if (name.value == '' || street.value == '' || mail == 0) {
             let cart: HTMLElement = document.getElementById("rechnung");
             cart.innerHTML += "\nbitte eine Adresse und einen Lieferservice auswahlen.";
         } else {

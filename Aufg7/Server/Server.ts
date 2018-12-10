@@ -28,7 +28,7 @@ namespace baum7 {
          for (let key in query) {
             console.log(key);
             console.log(query[key]);
-            //_response.write("<p> " + key + " = " + query[key] + " </p> ");
+            _response.write("<p> " + key + " = " + query[key] + " </p> ");
             
            /*  let jsonString: string = JSON.stringify(url.query);
             _response.write(jsonString);*/
