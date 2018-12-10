@@ -1,7 +1,7 @@
 var baum7;
 (function (baum7) {
     document.addEventListener('DOMContentLoaded', init);
-    let address = "http://localhost:8100";
+    let address = "https://testappobiwan.herokuapp.com/";
     let querystring = "";
     function init() {
         disp(baum7.baumarray);
