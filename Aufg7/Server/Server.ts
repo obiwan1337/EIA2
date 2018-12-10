@@ -31,7 +31,8 @@ namespace baum7 {
             //        let jsonString: string = JSON.stringify(url.query);
             //        _response.write(jsonString);
 
-            _response.end();
+            
         }
+        _response.end();
     }
 }
