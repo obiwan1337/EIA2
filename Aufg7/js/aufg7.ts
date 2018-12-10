@@ -1,12 +1,12 @@
 namespace baum7 {
     document.addEventListener('DOMContentLoaded', init);
-    let address: string = "https://testappobiwan.herokuapp.com";
+    let address: string = "http://localhost:8100";
     let querystring: string = "";
     function init() {
         disp(baumarray);
         createadress();
         showdebill();
-        setupAsyncForm();
+        
     }
     function disp(_products: Products): void {
         let numFS: number = -1;
@@ -70,26 +70,20 @@ namespace baum7 {
             }
         }
         gesprice += roundedprice;
-        childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + querystring + "</textarea>";
+        childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + "</textarea>";
+        let nameinput = document.getElementById("lname").getAttribute("value");
+        let streetinput = document.getElementById("lname").getAttribute("value");
+        console.log(nameinput + streetinput);
         node.innerHTML += childnode;
     }
 
     function handleClick(_event: MouseEvent): void {
         showdebill();
     }
-    function setupAsyncForm(): void {
-        let button: Element = document.querySelector("[type=button]");
-        button.addEventListener("click", handleClickOnAsync);
-    }
-
-    function handleClickOnAsync(_event: Event): void {
-        let wert: string = (<HTMLInputElement>document.querySelector(":checked")).value;
-        sendRequestWithCustomData(wert);
-    }
-
-    function sendRequestWithCustomData(_wert: string): void {
+    
+    function sendRequestWithCustomData(): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "/?" + querystring, true);
+        xhr.open("GET", address + "?" + querystring, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
         console.log(querystring);
@@ -107,7 +101,7 @@ namespace baum7 {
         childnode += "<fieldset id=address><legend>Lieferadresse</legend> Name:   <input id='lname' type='text' name='lname' required=''><br> Straße: <input id=street type='text'  name='street' required=''> <br></fieldset>";
         node.innerHTML += childnode; node.addEventListener("change", handleClick);
         let nod: HTMLElement = document.getElementById("bebutton"); nod.addEventListener("click", checkout);
-        let async: HTMLElement = document.getElementById("async"); async.addEventListener("click", handleClickOnAsync);
+        let async: HTMLElement = document.getElementById("async"); async.addEventListener("click", sendRequestWithCustomData);
     }
     function checkout() {
         var name: HTMLInputElement = <HTMLInputElement>document.getElementById("lname");

@@ -1,13 +1,12 @@
 var baum7;
 (function (baum7) {
     document.addEventListener('DOMContentLoaded', init);
-    let address = "https://testappobiwan.herokuapp.com/";
+    let address = "http://localhost:8100";
     let querystring = "";
     function init() {
         disp(baum7.baumarray);
         createadress();
         showdebill();
-        setupAsyncForm();
     }
     function disp(_products) {
         let numFS = -1;
@@ -74,23 +73,18 @@ var baum7;
             }
         }
         gesprice += roundedprice;
-        childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + querystring + "</textarea>";
+        childnode += " \nGesamtpreis: " + gesprice.toFixed(2) + "</textarea>";
+        let nameinput = document.getElementById("lname").getAttribute("value");
+        let streetinput = document.getElementById("lname").getAttribute("value");
+        console.log(nameinput + streetinput);
         node.innerHTML += childnode;
     }
     function handleClick(_event) {
         showdebill();
     }
-    function setupAsyncForm() {
-        let button = document.querySelector("[type=button]");
-        button.addEventListener("click", handleClickOnAsync);
-    }
-    function handleClickOnAsync(_event) {
-        let wert = document.querySelector(":checked").value;
-        sendRequestWithCustomData(wert);
-    }
-    function sendRequestWithCustomData(_wert) {
+    function sendRequestWithCustomData() {
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "/?" + querystring, true);
+        xhr.open("GET", address + "?" + querystring, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
         console.log(querystring);
@@ -111,7 +105,7 @@ var baum7;
         let nod = document.getElementById("bebutton");
         nod.addEventListener("click", checkout);
         let async = document.getElementById("async");
-        async.addEventListener("click", handleClickOnAsync);
+        async.addEventListener("click", sendRequestWithCustomData);
     }
     function checkout() {
         var name = document.getElementById("lname");
