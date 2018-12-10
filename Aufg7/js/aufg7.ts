@@ -1,6 +1,6 @@
 namespace baum7 {
     document.addEventListener('DOMContentLoaded', init);
-    let address: string = "https://testappobiwan.herokuapp.com/";
+    let address: string = "https://testappobiwan.herokuapp.com";
     let querystring: string = "";
     function init() {
         disp(baumarray);
