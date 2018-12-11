@@ -7,6 +7,7 @@ var baum7;
         disp(baum7.baumarray);
         createadress();
         showdebill();
+        setupAsyncForm();
     }
     function disp(_products) {
         let numFS = -1;
@@ -67,7 +68,7 @@ var baum7;
                 var count = Number(input.value);
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: " + count;
                 roundedprice += price * count;
-                querystring += prodgrp + "=" + nameattribute + "=" + count + "&";
+                querystring += nameattribute + "=" + count + "&";
             }
             else {
             }
@@ -87,21 +88,31 @@ var baum7;
     function handleClick(_event) {
         showdebill();
     }
+    function setupAsyncForm() {
+        let button = document.querySelector("[type=button]");
+        button.addEventListener("click", handleClickOnAsync);
+    }
+    function handleClickOnAsync(_event) {
+        let color = document.querySelectorAll(":checked");
+        sendRequestWithCustomData();
+    }
     function sendRequestWithCustomData() {
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?" + querystring, true);
+        xhr.open("GET", address + "/?" + querystring, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
-        console.log(querystring);
-        let divele = document.createElement("div");
-        document.getElementById("form2").appendChild(divele);
-        divele.innerHTML = xhr.response;
     }
     function handleStateChange(_event) {
         var xhr = _event.target;
+        console.log(xhr.readyState);
+        let divele;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
             console.log("response: " + xhr.response);
+            divele = document.createElement("div");
+            document.getElementById("form2").appendChild(divele);
+            divele.innerHTML = "";
+            divele.innerHTML += xhr.response;
         }
     }
     function createadress() {
@@ -112,18 +123,17 @@ var baum7;
         node.addEventListener("change", handleClick);
         let nod = document.getElementById("bebutton");
         nod.addEventListener("click", checkout);
-        let async = document.getElementById("async");
-        async.addEventListener("click", sendRequestWithCustomData);
+        //let async: HTMLElement = document.getElementById("async"); async.addEventListener("click", sendRequestWithCustomData);
     }
     function checkout() {
         var name = document.getElementById("lname");
-        var address = document.getElementById("street");
+        var street = document.getElementById("street");
         var mailboy = document.getElementById("mailboy");
         var mail = 0;
         if (mailboy.checked == true) {
             mail = 1;
         }
-        if (name.value == '' || address.value == '' || mail == 0) {
+        if (name.value == '' || street.value == '' || mail == 0) {
             let cart = document.getElementById("rechnung");
             cart.innerHTML += "\nbitte eine Adresse und einen Lieferservice auswahlen.";
         }

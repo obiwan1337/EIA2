@@ -6,7 +6,7 @@ namespace baum7 {
         disp(baumarray);
         createadress();
         showdebill();
-
+        setupAsyncForm();
     }
     function disp(_products: Products): void {
         let numFS: number = -1;
@@ -49,7 +49,7 @@ namespace baum7 {
         let prodgrp: string;
         for (let i: number = 0; i < list.length; i++) {
             let input = (<HTMLInputElement>list[i]);
-           
+
             if (input.checked == true) {
                 let nameattribute: string = input.getAttribute("product");
                 let priceattribute: string = input.getAttribute("price");
@@ -66,7 +66,7 @@ namespace baum7 {
                 var count = Number(input.value);
                 childnode += "\nGewaehleter Artikel: " + nameattribute + " " + priceattribute + " Anzahl: " + count;
                 roundedprice += price * count;
-                querystring += prodgrp + "=" + nameattribute + "=" + count + "&";
+                querystring += nameattribute + "=" + count + "&";
             } else {
             }
         }
@@ -86,24 +86,36 @@ namespace baum7 {
     function handleClick(_event: MouseEvent): void {
         showdebill();
     }
+    function setupAsyncForm(): void {
+        let button: Element = document.querySelector("[type=button]");
+        button.addEventListener("click", handleClickOnAsync);
+    }
+
+    function handleClickOnAsync(_event: Event): void {
+        let color: NodeListOf<HTMLInputElement> = document.querySelectorAll(":checked");
+        sendRequestWithCustomData();
+    }
 
     function sendRequestWithCustomData(): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?" + querystring, true);
+        xhr.open("GET", address + "/?" + querystring, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
-        console.log(querystring);
-        let divele: HTMLDivElement = document.createElement("div");
-        document.getElementById("form2").appendChild(divele);
-        divele.innerHTML = xhr.response;
     }
 
     function handleStateChange(_event: ProgressEvent): void {
         var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        console.log(xhr.readyState);
+        let divele: HTMLDivElement; 
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
             console.log("response: " + xhr.response);
+            divele = document.createElement("div");
+            document.getElementById("form2").appendChild(divele);
+            divele.innerHTML = "";
             
+            
+            divele.innerHTML += xhr.response;
         }
     }
     function createadress() {
@@ -111,7 +123,7 @@ namespace baum7 {
         childnode += "<fieldset id=address><legend>Lieferadresse</legend> Name:   <input id='lname' type='text' name='lname' required=''><br> Straße: <input id=street type='text'  name='street' required=''> <br></fieldset>";
         node.innerHTML += childnode; node.addEventListener("change", handleClick);
         let nod: HTMLElement = document.getElementById("bebutton"); nod.addEventListener("click", checkout);
-        let async: HTMLElement = document.getElementById("async"); async.addEventListener("click", sendRequestWithCustomData);
+        //let async: HTMLElement = document.getElementById("async"); async.addEventListener("click", sendRequestWithCustomData);
     }
     function checkout() {
         var name: HTMLInputElement = <HTMLInputElement>document.getElementById("lname");
