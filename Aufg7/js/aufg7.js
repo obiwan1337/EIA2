@@ -105,14 +105,12 @@ var baum7;
     function handleStateChange(_event) {
         var xhr = _event.target;
         console.log(xhr.readyState);
-        let divele;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
             console.log("response: " + xhr.response);
-            divele = document.createElement("div");
-            document.getElementById("form2").appendChild(divele);
-            divele.innerHTML = "";
-            divele.innerHTML += xhr.response;
+            var responsediv = document.getElementById("resdiv");
+            responsediv.innerHTML = "";
+            responsediv.innerHTML += xhr.response;
         }
     }
     function createadress() {
