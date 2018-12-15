@@ -7,6 +7,7 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
+        document.getElementById("matser").addEventListener("input", searchclick);
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
     }
@@ -19,7 +20,7 @@ var DatabaseClient;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
-    function searchclicke(_event) {
+    function searchclick(_event) {
         let target = _event.target;
         console.log("search testeru");
         let matrikel = parseInt(target.value);
@@ -31,10 +32,15 @@ var DatabaseClient;
  */
     }
     function seamar(_event) {
+        let output = document.getElementById("output");
+        var xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            output.innerHTML = xhr.response;
+        }
     }
     function refresh(_event) {
         let query = "command=refresh";
-        sendRequest(query, handleFindResponse);
+        sendRequest(query, findresponder);
     }
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -48,13 +54,18 @@ var DatabaseClient;
             alert(xhr.response);
         }
     }
-    function handleFindResponse(_event) {
+    function handleSearchResponse(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output = document.getElementsByTagName("textarea")[1];
+            output.value = xhr.response;
+        }
+    }
+    function findresponder(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
         }
     }
 })(DatabaseClient || (DatabaseClient = {}));

@@ -14,7 +14,7 @@ let students: Mongo.Collection;
 if (process.env.NODE_ENV == "production") {
     databaseURL = "mongodb://highgroundmaster:its0ver!@ds117164.mlab.com:17164/eier2";
     //  databaseURL = "mongodb://testuser:testpassword@ds129532.mlab.com:29532/eia2";
-    databaseName = "eia2";
+    databaseName = "eier2";
 }
 
 // try to connect to database, then activate callback "handleConnect" 
@@ -55,6 +55,21 @@ export function findAll(_callback: Function): void {
             _callback("Error" + _e);
         else
             // stringify creates a json-string, passed it back to _callback
+            _callback(JSON.stringify(studentArray));
+    }
+    
+    
+ 
+}
+
+export function searchMatrikelnumber(_matNumber: number, _callback: Function): void {
+    var cursor: Mongo.Cursor = students.find({matrikel: _matNumber});
+    cursor.toArray(prepareAnswer);
+
+    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
+        if (_e)
+            _callback("Error" + _e);
+        else
             _callback(JSON.stringify(studentArray));
     }
 }

@@ -7,8 +7,10 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
+        document.getElementById("matser").addEventListener("input", searchclick)
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+
     }
 
     function insert(_event: Event): void {
@@ -20,7 +22,7 @@ namespace DatabaseClient {
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
-    function searchclicke(_event: Event): void {
+    function searchclick(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         console.log("search testeru");
         let matrikel: number = parseInt(target.value);
@@ -33,11 +35,15 @@ namespace DatabaseClient {
  */
     }
     function seamar(_event: ProgressEvent): void {
-
+        let output: HTMLElement = document.getElementById("output");
+        var xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            output.innerHTML = xhr.response;
+        }
     }
     function refresh(_event: Event): void {
         let query: string = "command=refresh";
-        sendRequest(query, handleFindResponse);
+        sendRequest(query, findresponder);
     }
 
     function sendRequest(_query: string, _callback: EventListener): void {
@@ -53,14 +59,19 @@ namespace DatabaseClient {
             alert(xhr.response);
         }
     }
+    function handleSearchResponse(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
+            output.value = xhr.response;
+        }
+    }
 
-    function handleFindResponse(_event: ProgressEvent): void {
+    function findresponder(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
-            let responseAsJson: JSON = JSON.parse(xhr.response);
-            console.log(responseAsJson);
         }
     }
 }

@@ -14,7 +14,7 @@ let students;
 if (process.env.NODE_ENV == "production") {
     databaseURL = "mongodb://highgroundmaster:its0ver!@ds117164.mlab.com:17164/eier2";
     //  databaseURL = "mongodb://testuser:testpassword@ds129532.mlab.com:29532/eia2";
-    databaseName = "eia2";
+    databaseName = "eier2";
 }
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, handleConnect);
@@ -54,4 +54,15 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
+function searchMatrikelnumber(_matNumber, _callback) {
+    var cursor = students.find({ matrikel: _matNumber });
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, studentArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback(JSON.stringify(studentArray));
+    }
+}
+exports.searchMatrikelnumber = searchMatrikelnumber;
 //# sourceMappingURL=Database.js.map
