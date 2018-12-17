@@ -7,7 +7,7 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("searchbutt");
+        let searchButt: HTMLButtonElement = <HTMLButtonElement>document.getElementById("searchbutt");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButt.addEventListener("click", search);

@@ -7,7 +7,7 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let searchButton = document.getElementById("searchbutt");
+        let searchButt = document.getElementById("searchbutt");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButt.addEventListener("click", search);
