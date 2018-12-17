@@ -24,7 +24,7 @@ var DatabaseClient;
     function search(_event) {
         let commandSearch = "command=search";
         console.log("testeru");
-        let input = document.getElementById("matrikelnummer");
+        let input = document.getElementById("matserch");
         commandSearch += "&Matrikelnummer=" + input.value;
         sendRequest(commandSearch, handleSearchResponse);
     }

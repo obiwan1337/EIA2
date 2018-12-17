@@ -25,7 +25,7 @@ namespace DatabaseClient {
     function search(_event: Event): void {
         let commandSearch: string = "command=search";
         console.log("testeru");
-        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
+        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matserch");
         commandSearch += "&Matrikelnummer=" + input.value;
         sendRequest(commandSearch, handleSearchResponse);
 
