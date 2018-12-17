@@ -24,7 +24,7 @@ namespace DatabaseClient {
     }
     function search(_event: Event): void {
         let commandSearch: string = "command=search";
-        console.log("test1");
+        console.log("testeru");
         let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
         commandSearch += "&Matrikelnummer=" + input.value;
         sendRequest(commandSearch, handleSearchResponse);
@@ -61,6 +61,8 @@ namespace DatabaseClient {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
+            let responseAsJson: JSON = JSON.parse(xhr.response);
+            console.log(responseAsJson);
         }
     }
 }

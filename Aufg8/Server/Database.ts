@@ -16,7 +16,6 @@ if (process.env.NODE_ENV == "production") {
     //  databaseURL = "mongodb://testuser:testpassword@ds129532.mlab.com:29532/eia2";
     databaseName = "eier2";
 }
-
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, handleConnect);
 

@@ -23,7 +23,7 @@ var DatabaseClient;
     }
     function search(_event) {
         let commandSearch = "command=search";
-        console.log("test1");
+        console.log("testeru");
         let input = document.getElementById("matrikelnummer");
         commandSearch += "&Matrikelnummer=" + input.value;
         sendRequest(commandSearch, handleSearchResponse);
@@ -56,6 +56,8 @@ var DatabaseClient;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
+            let responseAsJson = JSON.parse(xhr.response);
+            console.log(responseAsJson);
         }
     }
 })(DatabaseClient || (DatabaseClient = {}));
