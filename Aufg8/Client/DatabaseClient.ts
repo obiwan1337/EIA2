@@ -7,10 +7,10 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        document.getElementById("matser").addEventListener("input", searchclick)
+        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("searchbutt");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-
+        searchButt.addEventListener("click", search);
     }
 
     function insert(_event: Event): void {
@@ -22,24 +22,13 @@ namespace DatabaseClient {
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
-    function searchclick(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        console.log("search testeru");
-        let matrikel: number = parseInt(target.value);
+    function search(_event: Event): void {
+        let commandSearch: string = "command=search";
+        console.log("test1");
+        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
+        commandSearch += "&Matrikelnummer=" + input.value;
+        sendRequest(commandSearch, handleSearchResponse);
 
-        /* 
-        let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", serverAddress + "?command=search&matrikel=" + matrikel, true);
-        xhr.addEventListener("readystatechange", seamar);
-        xhr.send();
- */
-    }
-    function seamar(_event: ProgressEvent): void {
-        let output: HTMLElement = document.getElementById("output");
-        var xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            output.innerHTML = xhr.response;
-        }
     }
     function refresh(_event: Event): void {
         let query: string = "command=refresh";
@@ -62,7 +51,7 @@ namespace DatabaseClient {
     function handleSearchResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
+            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
         }
     }

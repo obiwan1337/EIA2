@@ -1,9 +1,9 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Simple server managing between client and database
  * @author: Jirka Dell'Oro-Friedl
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
 const Database = require("./Database");
@@ -30,14 +30,14 @@ function handleRequest(_request, _response) {
                 matrikel: parseInt(query["matrikel"])
             };
             Database.insert(student);
-            respond(_response, "stored");
-            break;
-        case "search":
-            let marnum = parseInt(query["Matrikelnummer"]);
-            Database.searchMatrikelnumber(marnum, findCallback);
+            respond(_response, "storing data");
             break;
         case "refresh":
             Database.findAll(findCallback);
+            break;
+        case "search":
+            let martrikelNumber = parseInt(query["Matrikelnummer"]);
+            Database.searchMatrikelnumber(martrikelNumber, findCallback);
             break;
         default:
             respond(_response, "unknown command: " + command);
@@ -55,4 +55,4 @@ function respond(_response, _text) {
     _response.write(_text);
     _response.end();
 }
-//# sourceMappingURL=Server.js.map
+//# sourceMappingURL=Serversara.js.map

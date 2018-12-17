@@ -7,9 +7,10 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        document.getElementById("matser").addEventListener("input", searchclick);
+        let searchButton = document.getElementById("searchbutt");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        searchButt.addEventListener("click", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -20,23 +21,12 @@ var DatabaseClient;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
-    function searchclick(_event) {
-        let target = _event.target;
-        console.log("search testeru");
-        let matrikel = parseInt(target.value);
-        /*
-        let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", serverAddress + "?command=search&matrikel=" + matrikel, true);
-        xhr.addEventListener("readystatechange", seamar);
-        xhr.send();
- */
-    }
-    function seamar(_event) {
-        let output = document.getElementById("output");
-        var xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            output.innerHTML = xhr.response;
-        }
+    function search(_event) {
+        let commandSearch = "command=search";
+        console.log("test1");
+        let input = document.getElementById("matrikelnummer");
+        commandSearch += "&Matrikelnummer=" + input.value;
+        sendRequest(commandSearch, handleSearchResponse);
     }
     function refresh(_event) {
         let query = "command=refresh";
@@ -57,7 +47,7 @@ var DatabaseClient;
     function handleSearchResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[1];
+            let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
         }
     }
