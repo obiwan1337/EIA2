@@ -1,5 +1,5 @@
-var DatabaseClient;
-(function (DatabaseClient) {
+var Databaseobiwan;
+(function (Databaseobiwan) {
     window.addEventListener("load", init);
     //let serverAddress: string = "http://localhost:8100";
     let serverAddress = "https://eier2.herokuapp.com/";
@@ -60,5 +60,5 @@ var DatabaseClient;
             console.log(responseAsJson);
         }
     }
-})(DatabaseClient || (DatabaseClient = {}));
+})(Databaseobiwan || (Databaseobiwan = {}));
 //# sourceMappingURL=DatabaseClient.js.map
