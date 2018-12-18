@@ -25,12 +25,12 @@ var Databaseobiwan;
         let commandSearch = "command=search";
         console.log("testeru");
         let input = document.getElementById("matserch");
-        commandSearch += "&matrikel=" + input.value;
-        sendRequest(commandSearch, findresponder);
+        commandSearch += "&Matrikelnummer=" + input.value;
+        sendRequest(commandSearch, handleSearchResponse);
     }
     function refresh(_event) {
         let query = "command=refresh";
-        sendRequest(query, findresponder);
+        sendRequest(query, handleSearchResponse);
     }
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -44,13 +44,11 @@ var Databaseobiwan;
             alert(xhr.response);
         }
     }
-    function findresponder(_event) {
+    function handleSearchResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
         }
     }
 })(Databaseobiwan || (Databaseobiwan = {}));

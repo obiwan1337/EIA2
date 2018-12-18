@@ -33,7 +33,7 @@ function handleRequest(_request, _response) {
             respond(_response, "stored");
             break;
         case "search":
-            let marnum = parseInt(query["matrikel"]);
+            let marnum = parseInt(query["Matrikelnummer"]);
             console.log(marnum);
             Database.searchMatrikelnumber(marnum, findCallback);
             break;
@@ -50,7 +50,7 @@ function handleRequest(_request, _response) {
     }
 }
 function respond(_response, _text) {
-    //console.log("Preparing response: " + _text);
+    console.log("Preparing response: " + _text);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.write(_text);
