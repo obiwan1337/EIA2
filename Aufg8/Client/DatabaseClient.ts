@@ -26,8 +26,8 @@ namespace Databaseobiwan {
         let commandSearch: string = "command=search";
         console.log("testeru");
         let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matserch");
-        commandSearch += "&Matrikelnummer=" + input.value;
-        sendRequest(commandSearch, handleSearchResponse);
+        commandSearch += "&matrikel=" + input.value;
+        sendRequest(commandSearch, findresponder);
 
     }
     function refresh(_event: Event): void {
@@ -48,14 +48,6 @@ namespace Databaseobiwan {
             alert(xhr.response);
         }
     }
-    function handleSearchResponse(_event: ProgressEvent): void {
-        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-        }
-    }
-
     function findresponder(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {

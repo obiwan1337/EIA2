@@ -25,8 +25,8 @@ var Databaseobiwan;
         let commandSearch = "command=search";
         console.log("testeru");
         let input = document.getElementById("matserch");
-        commandSearch += "&Matrikelnummer=" + input.value;
-        sendRequest(commandSearch, handleSearchResponse);
+        commandSearch += "&matrikel=" + input.value;
+        sendRequest(commandSearch, findresponder);
     }
     function refresh(_event) {
         let query = "command=refresh";
@@ -42,13 +42,6 @@ var Databaseobiwan;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             alert(xhr.response);
-        }
-    }
-    function handleSearchResponse(_event) {
-        let xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
         }
     }
     function findresponder(_event) {

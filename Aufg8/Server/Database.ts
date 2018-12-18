@@ -57,9 +57,7 @@ export function findAll(_callback: Function): void {
             // stringify creates a json-string, passed it back to _callback
             _callback(JSON.stringify(studentArray));
     }
-    
-    
- 
+
 }
 
 export function searchMatrikelnumber(_matNumber: number, _callback: Function): void {
