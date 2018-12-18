@@ -30,7 +30,11 @@ function handleRequest(_request, _response) {
                 matrikel: parseInt(query["matrikel"])
             };
             Database.insert(student);
-            respond(_response, "storing data");
+            respond(_response, "stored");
+            break;
+        case "search":
+            let marnum = parseInt(query["Matrikelnummer"]);
+            Database.searchMatrikelnumber(marnum, findCallback);
             break;
         case "refresh":
             Database.findAll(findCallback);

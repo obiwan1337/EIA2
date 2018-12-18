@@ -38,7 +38,11 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
                 matrikel: parseInt(query["matrikel"])
             };
             Database.insert(student);
-            respond(_response, "storing data");
+            respond(_response, "stored");
+            break;
+        case "search":
+            let marnum: number = parseInt(query["Matrikelnummer"]);
+            Database.searchMatrikelnumber(marnum, findCallback);
             break;
         case "refresh":
             Database.findAll(findCallback);

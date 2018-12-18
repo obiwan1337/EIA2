@@ -15,6 +15,7 @@ if (process.env.NODE_ENV == "production") {
     databaseURL = "mongodb://highgroundmaster:its0ver!@ds117164.mlab.com:17164/eier2";
     //  databaseURL = "mongodb://testuser:testpassword@ds129532.mlab.com:29532/eia2";
     databaseName = "eier2";
+    console.log("heruuuuuu");
 }
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, handleConnect);
