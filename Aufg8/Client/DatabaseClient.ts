@@ -14,7 +14,7 @@ namespace Databaseobiwan {
     }
 
     function insert(_event: Event): void {
-        let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=insert";
         query += "&name=" + inputs[0].value;
         query += "&firstname=" + inputs[1].value;
@@ -32,7 +32,7 @@ namespace Databaseobiwan {
     }
     function refresh(_event: Event): void {
         let query: string = "command=refresh";
-        sendRequest(query, findresponder);
+        sendRequest(query, handleSearchResponse);
     }
 
     function sendRequest(_query: string, _callback: EventListener): void {
@@ -53,16 +53,8 @@ namespace Databaseobiwan {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
+            console.log(output.value);
         }
     }
 
-    function findresponder(_event: ProgressEvent): void {
-        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson: JSON = JSON.parse(xhr.response);
-            console.log(responseAsJson);
-        }
-    }
 }

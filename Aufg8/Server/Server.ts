@@ -42,6 +42,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             break;
         case "search":
             let marnum: number = parseInt(query["Matrikelnummer"]);
+            console.log(marnum);
             Database.searchMatrikelnumber(marnum, findCallback);
             break;
         case "refresh":

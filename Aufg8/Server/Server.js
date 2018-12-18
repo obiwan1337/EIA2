@@ -34,6 +34,7 @@ function handleRequest(_request, _response) {
             break;
         case "search":
             let marnum = parseInt(query["Matrikelnummer"]);
+            console.log(marnum);
             Database.searchMatrikelnumber(marnum, findCallback);
             break;
         case "refresh":

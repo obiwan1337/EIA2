@@ -30,7 +30,7 @@ var Databaseobiwan;
     }
     function refresh(_event) {
         let query = "command=refresh";
-        sendRequest(query, findresponder);
+        sendRequest(query, handleSearchResponse);
     }
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -49,15 +49,7 @@ var Databaseobiwan;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
-        }
-    }
-    function findresponder(_event) {
-        let xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            console.log(output.value);
         }
     }
 })(Databaseobiwan || (Databaseobiwan = {}));
