@@ -2,7 +2,7 @@ var Databaseobiwan;
 (function (Databaseobiwan) {
     window.addEventListener("load", init);
     //let serverAddress: string = "http://localhost:8100";
-    let serverAddress = "https://eier2.herokuapp.com/";
+    let serverAddress = "https://dbeier2.herokuapp.com/";
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("insert");
