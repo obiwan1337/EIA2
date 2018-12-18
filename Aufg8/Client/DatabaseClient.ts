@@ -32,7 +32,7 @@ namespace Databaseobiwan {
     }
     function refresh(_event: Event): void {
         let query: string = "command=refresh";
-        sendRequest(query, handleSearchResponse);
+        sendRequest(query, findresponder);
     }
 
     function sendRequest(_query: string, _callback: EventListener): void {
@@ -53,6 +53,16 @@ namespace Databaseobiwan {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
+        }
+    }
+
+    function findresponder(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+            output.value = xhr.response;
+            let responseAsJson: JSON = JSON.parse(xhr.response);
+            console.log(responseAsJson);
         }
     }
 }
