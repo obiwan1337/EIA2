@@ -45,8 +45,6 @@ namespace hillanimation {
             c2d.fill();
             c2d.stroke();
 
-
-
         }
     }
 }

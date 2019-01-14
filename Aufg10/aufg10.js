@@ -25,6 +25,11 @@ var hillanimation;
             tree.y = y;
             trees.push(tree);
         }
+        for (let i = 0; i < 10; i++) {
+            let tree = trees[i];
+            hillanimation.baumcount = i;
+            tree.draw();
+        }
         imgData = hillanimation.c2d.getImageData(0, 0, hillanimation.c2d.canvas.width, hillanimation.c2d.canvas.height);
         //SLEDGES
         for (let i = 0; i < 10; i++) {
@@ -33,6 +38,7 @@ var hillanimation;
             sl.y = Math.floor(Math.random() * 150) + 300;
             sl.dx = Math.floor(Math.random() * 2) - 4;
             sl.dy = Math.floor(Math.random() * -2) + 4;
+            sl.direction = true;
             sledges.push(sl);
         }
         //SNOW
@@ -50,21 +56,22 @@ var hillanimation;
         window.setTimeout(update, 1000 / fps);
         hillanimation.c2d.clearRect(0, 0, hillanimation.c2d.canvas.width, hillanimation.c2d.canvas.height);
         hillanimation.c2d.putImageData(imgData, 0, 0);
-        //TREES
-        for (let i = 0; i < 10; i++) {
-            let tree = trees[i];
-            hillanimation.baumcount = i;
-            tree.draw();
-        }
         //SLEDGE
         for (let i = 0; i < 10; i++) {
             let sledge = sledges[i];
-            sledge.drawslide();
-            sledge.move();
-            if (this.x > 1200) {
-                this.dx = +4;
-                this.dy = -4;
-                console.log("hoch");
+            if (sledge.y <= 300) {
+                sledge.direction = true;
+            }
+            else if (sledge.y >= 650) {
+                sledge.direction = false;
+            }
+            if (sledge.direction == true) {
+                sledge.drawslide();
+                sledge.moveslide();
+            }
+            else {
+                sledge.drawpull();
+                sledge.movepull();
             }
         }
         //SNOW
@@ -72,15 +79,6 @@ var hillanimation;
             let snowflake = snowflakes[i];
             snowflake.move();
             snowflake.draw();
-        }
-    }
-    function sledge() {
-        hillanimation.c2d.beginPath();
-        let x = Math.floor(Math.random() * 100) + 1300;
-        let y = Math.floor(Math.random() * 100) + 700;
-        if (x > 1350) {
-            x += 55;
-            y += 45;
         }
     }
 })(hillanimation || (hillanimation = {}));

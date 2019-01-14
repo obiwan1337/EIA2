@@ -5,10 +5,8 @@ namespace hillanimation {
     export let baumcount: number = 0;
     let sledges: Sledgeslide[] = [];
     let trees: Tree[] = [];
-
     let snowflakes: Snowflake[] = [];
     let imgData;
-
     function init(_e: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         c2d = canvas.getContext("2d");
@@ -30,18 +28,22 @@ namespace hillanimation {
             tree.y = y;
             trees.push(tree);
         }
+        for (let i: number = 0; i < 10; i++) {
+            let tree: Tree = trees[i];
+            baumcount = i;
+            tree.draw();
+        }
         imgData = c2d.getImageData(0, 0, c2d.canvas.width, c2d.canvas.height);
         //SLEDGES
         for (let i: number = 0; i < 10; i++) {
             let sl: Sledgeslide = new Sledgeslide();
             sl.x = Math.floor(Math.random() * 300) + 1600;
             sl.y = Math.floor(Math.random() * 150) + 300;
-            
-            sl.dx =  Math.floor(Math.random() * 2)-4;
-            sl.dy =  Math.floor(Math.random() * -2)+4;
+            sl.dx = Math.floor(Math.random() * 2) - 4;
+            sl.dy = Math.floor(Math.random() * -2) + 4;
+            sl.direction = true;
             sledges.push(sl);
         }
-        
         //SNOW
         for (let i: number = 0; i < 700; i++) {
             let snowflake: Snowflake = new Snowflake();
@@ -58,21 +60,29 @@ namespace hillanimation {
         window.setTimeout(update, 1000 / fps);
         c2d.clearRect(0, 0, c2d.canvas.width, c2d.canvas.height);
         c2d.putImageData(imgData, 0, 0);
-        //TREES
-        for (let i: number = 0; i < 10; i++) {
-            let tree: Tree = trees[i];
-            baumcount = i;
-            tree.draw();
-        }
+
         //SLEDGE
+        
         for (let i: number = 0; i < 10; i++) {
-            let sledge: Sledgeslide = sledges[i];
-            sledge.drawslide();
-            sledge.move();
-            if (this.x > 1200) {
-                this.dx = +4;
-                this.dy = -4;
-                console.log("hoch");
+            let sledge = sledges[i];
+            if (sledge.y <= 300) {
+            
+                sledge.direction = true;
+
+            }
+            else if (sledge.y >= 650) {
+                
+                sledge.direction = false;
+            }
+            if (sledge.direction == true) {
+               
+                sledge.drawslide();
+                sledge.moveslide();
+            }
+            else {
+                
+                sledge.drawpull();
+                sledge.movepull();
             }
         }
         //SNOW
@@ -81,18 +91,6 @@ namespace hillanimation {
             snowflake.move();
             snowflake.draw();
         }
-    }
-
-
-    function sledge(): void {
-        c2d.beginPath();
-        let x: number = Math.floor(Math.random() * 100) + 1300;
-        let y: number = Math.floor(Math.random() * 100) + 700;
-        if (x > 1350) {
-            x += 55; y += 45;
-        }
-
-
     }
 }
 
