@@ -59,10 +59,10 @@ var hillanimation;
         //SLEDGE
         for (let i = 0; i < 10; i++) {
             let sledge = sledges[i];
-            if (sledge.y <= 300) {
+            if (sledge.y <= 350) {
                 sledge.direction = true;
             }
-            else if (sledge.y >= 650) {
+            else if (sledge.y >= 900) {
                 sledge.direction = false;
             }
             if (sledge.direction == true) {

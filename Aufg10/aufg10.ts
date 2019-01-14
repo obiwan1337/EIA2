@@ -70,7 +70,7 @@ namespace hillanimation {
                 sledge.direction = true;
 
             }
-            else if (sledge.y >= 750) {
+            else if (sledge.y >= 900) {
                 
                 sledge.direction = false;
             }
