@@ -1,0 +1,1 @@
+{"version":3,"file":"moving_objects.js","sourceRoot":"","sources":["moving_objects.ts"],"names":[],"mappings":"AAAA,IAAU,MAAM,CAgBf;AAhBD,WAAU,MAAM;IACZ,MAAa,cAAc;QAMvB;YACI,IAAI,CAAC,IAAI,EAAE,CAAC;QAChB,CAAC;QAED,IAAI;YACA,IAAI,CAAC,KAAK,EAAE,CAAC;QACjB,CAAC;QACD,KAAK,KAAW,CAAC;KACpB;IAdY,qBAAc,iBAc1B,CAAA;AACL,CAAC,EAhBS,MAAM,KAAN,MAAM,QAgBf"}
