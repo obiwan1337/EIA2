@@ -5,7 +5,7 @@
 	"author": "obiwan",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node Aufg8/Server/Server.js"
+		"start": "node Aufg12/Server/Server.js"
 	},
 	"engines": {
 		"node": "8.12.0"
