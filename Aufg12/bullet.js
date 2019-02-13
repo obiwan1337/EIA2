@@ -7,7 +7,7 @@ var invino;
         setup() {
         }
         move() {
-            this.dx -= 5;
+            this.dx -= 3.5;
         }
         draw() {
             invino.c2d.lineWidth = 9;
