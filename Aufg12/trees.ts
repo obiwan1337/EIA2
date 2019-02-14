@@ -5,7 +5,7 @@ namespace invino {
 
         
         init(): void {
-            this.x = Math.floor(Math.random() * 600) + 600;
+            this.x = Math.floor(Math.random() * 400) + 600;
             this.y = Math.floor(Math.random() * 200) + 450;
         }
         draw(): void {

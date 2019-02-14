@@ -160,26 +160,23 @@ var invino;
         let showend = end;
         showend.init();
         showend.draw();
-        document.getElementById('score').innerHTML = playerScore.toString();
+        document.getElementById('ownscore').innerHTML = playerScore.toString();
         document.getElementById('endscore').style.display = '';
-        // sledges = [];
-        // trees = [];
-        // snowflakes = [];
-        // bullet = [];
-        // playerScore = 0;
-        // playerName = "";
+        let input = document.getElementById("playername");
+        input.setAttribute("score", playerScore.toString());
     }
     function setupAsyncForm() {
         let button = document.querySelector("[type=button]");
         button.addEventListener("click", handleClickOnAsync);
     }
     function handleClickOnAsync(_event) {
-        let color = document.querySelectorAll(":checked");
+        // let color: NodeListOf<HTMLInputElement> = document.querySelectorAll(":checked");
         sendRequestWithCustomData();
     }
     function sendRequestWithCustomData() {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "/?" + querystring, true);
+        console.log(querystring);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }
@@ -189,9 +186,9 @@ var invino;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
             console.log("response: " + xhr.response);
-            var responsediv = document.getElementById("resdiv");
-            responsediv.innerHTML = "";
-            responsediv.innerHTML += xhr.response;
+            var responsearea = document.getElementById("scores");
+            responsearea.innerHTML = "";
+            responsearea.innerHTML += xhr.response;
         }
     }
 })(invino || (invino = {}));

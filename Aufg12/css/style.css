@@ -1,6 +1,6 @@
 #score {
     font-size: 2em;
-    position: absolute;
+    position: fixed;
     top: 50%;
     right: 50%;
 
@@ -8,17 +8,10 @@
 #gameframe{
     position: fixed;
 }
-#endscore {
-    position: fixed;
-    top: 0px;
-    width: 1900px;
-    height: 1000px;
-    
-}
-#savescore {
-    position: fixed;
-    bottom: 20%;
-    right: 20%;
+#resdiv{
+    position:fixed;
+    bottom:30%;
+    right:25%;
 }
 body {
     background-color: rgb(31, 158, 243);

@@ -13,14 +13,18 @@
 <script src="background.js" type="text/javascript" charset="utf-8"></script>
 <script src="cokainum.js" type="text/javascript" charset="utf-8"></script>
 <script src="bullet.js" type="text/javascript" charset="utf-8"></script>
+<script src="client/DatabaseClient.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" media="only screen" href="css/style.css" />
  </head>
 <body>
 	<canvas id= "gameframe" width=1900 height=1000></canvas>
 	<form id= "endscore">
-	<textarea id= "score" ></textarea>
-	
-	 <button id="savescore" type="button">save your score</button> 
+	<div id ="resdiv"> <input id="playername" type="text" name="plnm" placeholder="enter your name"/>
+	<button id="savescore" type="button">save your score</button> 
+	<button id="showscore" type="button">show top 5</button> 
+	<p id= "ownscore"></p>
+	<textarea id= "scores" readonly ></textarea>
+	</div>
 	</form>
 	<div id ="resdiv"> </div>
 </body>

@@ -1,16 +1,22 @@
 namespace invino {
     export class Sledge extends Moving_objects {
         direction: boolean;
+        hashit: boolean;
+        xblood:number;
+        yblood:number;
         constructor() {
             super();
+
+            this.hashit = false;
             
         }
         setup(): void {
-            this.x = Math.floor(Math.random() * 300) + 1600;
-            this.y = Math.floor(Math.random() * 150) + 300;
+            this.x = Math.floor(Math.random() * 800) + 1200;
+            this.y = Math.floor(Math.random() * 180) + 300;
             this.dx = Math.floor(Math.random() * 2) - 4;
             this.dy = Math.floor(Math.random() * -2) + 4;
             this.direction = true;
+            
         }
 
         draw(): void {
@@ -18,6 +24,7 @@ namespace invino {
             c2d.lineWidth = 4;
             c2d.strokeStyle = "#000000"
             c2d.moveTo(this.x, this.y);
+
             c2d.lineTo(this.x - 100, this.y + 55);
             c2d.bezierCurveTo(this.x - 140, this.y + 80, this.x - 140, this.y + 30, this.x - 100, this.y + 20);
             c2d.lineTo(this.x - 115, this.y + 60);
@@ -40,7 +47,7 @@ namespace invino {
             c2d.lineTo(this.x - 25, this.y - 35);
             c2d.lineTo(this.x, this.y - 20);
             c2d.lineTo(this.x - 100, this.y + 25);
-            
+
             c2d.stroke();
 
             c2d.fillStyle = "#563900";
@@ -77,7 +84,7 @@ namespace invino {
             if (this.y <= 350) {
                 this.direction = true;
             }
-            if (this.y >= 800) {
+            if (this.y >= 800 && this.hashit==false) {
                 this.direction = false;
             }
         }
@@ -86,6 +93,7 @@ namespace invino {
             c2d.lineWidth = 4;
             c2d.strokeStyle = "#000000"
             c2d.moveTo(this.x, this.y);
+            
             c2d.lineTo(this.x + 75, this.y - 65);
             c2d.bezierCurveTo(this.x + 90, this.y - 80, this.x + 90, this.y - 100, this.x + 80, this.y - 100);
             c2d.stroke();
@@ -124,13 +132,13 @@ namespace invino {
             c2d.stroke();
             c2d.closePath();
             c2d.beginPath();
-            
+
             c2d.arc(this.x + 150, this.y - 185, 10, 0, 2 * Math.PI, false);
-           
+
             c2d.stroke();
             c2d.closePath();
-           
-            
+
+
         }
         movepull(): void {
             //this.x -= this.dx;
@@ -139,13 +147,14 @@ namespace invino {
             if (this.y <= 350) {
                 this.direction = true;
             }
-            if (this.y >= 800) {
+            if (this.y >= 800 && this.hashit==false) {
                 this.direction = false;
             }
         }
-        drawSledegeAlone(): void {
-            c2d.beginPath();
+        drawSledgeAlone(): void {
+        
             c2d.lineWidth = 4;
+            c2d.fillStyle = "#563900";
             c2d.strokeStyle = "#000000"
             c2d.moveTo(this.x, this.y);
             c2d.lineTo(this.x - 100, this.y + 55);
@@ -175,6 +184,19 @@ namespace invino {
             c2d.fillStyle = "#563900";
             c2d.fill();
 
+        }
+        drawBlood(){
+            c2d.fillStyle = "#ff0000";
+            
+            c2d.beginPath();
+            c2d.arc(this.xblood-10,this.yblood-75,26,0,2*Math.PI);
+            c2d.fill();
+            c2d.closePath();
+            c2d.beginPath();
+            c2d.arc(this.xblood-40,this.yblood-70,30,0,2*Math.PI);
+            c2d.fill();
+            c2d.closePath();
+            c2d.beginPath();
         }
     }
 }

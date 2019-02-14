@@ -3,10 +3,11 @@ var invino;
     class Sledge extends invino.Moving_objects {
         constructor() {
             super();
+            this.hashit = false;
         }
         setup() {
-            this.x = Math.floor(Math.random() * 300) + 1600;
-            this.y = Math.floor(Math.random() * 150) + 300;
+            this.x = Math.floor(Math.random() * 800) + 1200;
+            this.y = Math.floor(Math.random() * 180) + 300;
             this.dx = Math.floor(Math.random() * 2) - 4;
             this.dy = Math.floor(Math.random() * -2) + 4;
             this.direction = true;
@@ -68,7 +69,7 @@ var invino;
             if (this.y <= 350) {
                 this.direction = true;
             }
-            if (this.y >= 800) {
+            if (this.y >= 800 && this.hashit == false) {
                 this.direction = false;
             }
         }
@@ -125,13 +126,13 @@ var invino;
             if (this.y <= 350) {
                 this.direction = true;
             }
-            if (this.y >= 800) {
+            if (this.y >= 800 && this.hashit == false) {
                 this.direction = false;
             }
         }
-        drawSledegeAlone() {
-            invino.c2d.beginPath();
+        drawSledgeAlone() {
             invino.c2d.lineWidth = 4;
+            invino.c2d.fillStyle = "#563900";
             invino.c2d.strokeStyle = "#000000";
             invino.c2d.moveTo(this.x, this.y);
             invino.c2d.lineTo(this.x - 100, this.y + 55);
@@ -158,6 +159,18 @@ var invino;
             invino.c2d.stroke();
             invino.c2d.fillStyle = "#563900";
             invino.c2d.fill();
+        }
+        drawBlood() {
+            invino.c2d.fillStyle = "#ff0000";
+            invino.c2d.beginPath();
+            invino.c2d.arc(this.xblood - 10, this.yblood - 75, 26, 0, 2 * Math.PI);
+            invino.c2d.fill();
+            invino.c2d.closePath();
+            invino.c2d.beginPath();
+            invino.c2d.arc(this.xblood - 40, this.yblood - 70, 30, 0, 2 * Math.PI);
+            invino.c2d.fill();
+            invino.c2d.closePath();
+            invino.c2d.beginPath();
         }
     }
     invino.Sledge = Sledge;

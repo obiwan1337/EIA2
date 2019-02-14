@@ -1,32 +1,22 @@
-var Databaseobiwan;
-(function (Databaseobiwan) {
+var invino;
+(function (invino) {
     window.addEventListener("load", init);
     //let serverAddress: string = "http://localhost:8100";
     let serverAddress = "https://dbeier2.herokuapp.com/";
     function init(_event) {
         console.log("Init");
-        let insertButton = document.getElementById("insert");
-        let refreshButton = document.getElementById("refresh");
-        let searchButt = document.getElementById("searchbutt");
+        let insertButton = document.getElementById("savescore");
+        let refreshButton = document.getElementById("showscore");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButt.addEventListener("click", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
         let query = "command=insert";
-        query += "&name=" + inputs[0].value;
-        query += "&firstname=" + inputs[1].value;
-        query += "&matrikel=" + inputs[2].value;
+        query += "&player=" + inputs[0].value;
+        query += "&score=" + inputs[0].getAttribute("score");
         console.log(query);
         sendRequest(query, handleInsertResponse);
-    }
-    function search(_event) {
-        let commandSearch = "command=search";
-        console.log("testeru");
-        let input = document.getElementById("matserch");
-        commandSearch += "&Matrikelnummer=" + input.value;
-        sendRequest(commandSearch, handleSearchResponse);
     }
     function refresh(_event) {
         let query = "command=refresh";
@@ -53,5 +43,5 @@ var Databaseobiwan;
             console.log(output.value);
         }
     }
-})(Databaseobiwan || (Databaseobiwan = {}));
+})(invino || (invino = {}));
 //# sourceMappingURL=DatabaseClient.js.map

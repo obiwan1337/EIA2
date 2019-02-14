@@ -1,34 +1,26 @@
-namespace Databaseobiwan {
+namespace invino {
     window.addEventListener("load", init);
     //let serverAddress: string = "http://localhost:8100";
     let serverAddress: string = "https://dbeier2.herokuapp.com/";
 
     function init(_event: Event): void {
         console.log("Init");
-        let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
-        let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButt: HTMLButtonElement = <HTMLButtonElement>document.getElementById("searchbutt");
+        let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("savescore");
+        let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("showscore");
+
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButt.addEventListener("click", search);
+
     }
 
     function insert(_event: Event): void {
         let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=insert";
-        query += "&name=" + inputs[0].value;
-        query += "&firstname=" + inputs[1].value;
-        query += "&matrikel=" + inputs[2].value;
+        query += "&player=" + inputs[0].value;
+        query += "&score=" + inputs[0].getAttribute("score");
+        
         console.log(query);
         sendRequest(query, handleInsertResponse);
-    }
-    function search(_event: Event): void {
-        let commandSearch: string = "command=search";
-        console.log("testeru");
-        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matserch");
-        commandSearch += "&Matrikelnummer=" + input.value;
-        sendRequest(commandSearch, handleSearchResponse);
-
     }
     function refresh(_event: Event): void {
         let query: string = "command=refresh";

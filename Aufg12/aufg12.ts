@@ -172,16 +172,11 @@ namespace invino {
         let showend: endScreen = end;
         showend.init();
         showend.draw();
-        document.getElementById('score').innerHTML = playerScore.toString(); 
+        document.getElementById('ownscore').innerHTML = playerScore.toString(); 
         document.getElementById('endscore').style.display = '';
-        // sledges = [];
-        // trees = [];
-        // snowflakes = [];
-        // bullet = [];
+        let input: HTMLElement = document.getElementById("playername");
+        input.setAttribute("score",playerScore.toString());
         
-        
-        // playerScore = 0;
-        // playerName = "";
     }
     function setupAsyncForm(): void {
         let button: Element = document.querySelector("[type=button]");
@@ -189,13 +184,14 @@ namespace invino {
     }
 
     function handleClickOnAsync(_event: Event): void {
-        let color: NodeListOf<HTMLInputElement> = document.querySelectorAll(":checked");
+        // let color: NodeListOf<HTMLInputElement> = document.querySelectorAll(":checked");
         sendRequestWithCustomData();
     }
 
     function sendRequestWithCustomData(): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "/?" + querystring, true);
+        console.log(querystring);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }
@@ -208,9 +204,9 @@ namespace invino {
             console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
             console.log("response: " + xhr.response);
             
-            var responsediv = document.getElementById("resdiv");
-            responsediv.innerHTML = "";
-            responsediv.innerHTML += xhr.response;
+            var responsearea = document.getElementById("scores");
+            responsearea.innerHTML = "";
+            responsearea.innerHTML += xhr.response;
         }
     }
 }
