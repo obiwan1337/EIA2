@@ -33,7 +33,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
     switch (command) {
         case "insert":
             let player: PlayerData = {
-                name: query["name"],
+                name: query["player"],
                 score: parseInt(query["score"])
             };
             Database.insert(player);

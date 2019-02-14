@@ -27,7 +27,7 @@ function handleConnect(_e: Mongo.MongoError, _db: Mongo.Db): void {
     else {
         console.log("Connected to database!");
         db = _db.db(databaseName);
-        players = db.collection("Studs");
+        players = db.collection("playerScore");
     }
 }
 
@@ -60,14 +60,14 @@ export function findAll(_callback: Function): void {
 
 }
 
-export function searchMatrikelnumber(_marnum: number, _callback: Function): void {
-    var cursor: Mongo.Cursor = players.find({"matrikel": _marnum});
-    cursor.toArray(prepareAnswer);
+// export function searchMatrikelnumber(_marnum: number, _callback: Function): void {
+//     var cursor: Mongo.Cursor = players.find({"player": _marnum});
+//     cursor.toArray(prepareAnswer);
 
-    function prepareAnswer(_e: Mongo.MongoError, playerArray: PlayerData[]): void {
-        if (_e)
-            _callback("Error" + _e);
-        else
-            _callback(JSON.stringify(playerArray));
-    }
-}
+//     function prepareAnswer(_e: Mongo.MongoError, playerArray: PlayerData[]): void {
+//         if (_e)
+//             _callback("Error" + _e);
+//         else
+//             _callback(JSON.stringify(playerArray));
+//     }
+// }

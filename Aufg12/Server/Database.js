@@ -26,7 +26,7 @@ function handleConnect(_e, _db) {
     else {
         console.log("Connected to database!");
         db = _db.db(databaseName);
-        players = db.collection("Studs");
+        players = db.collection("playerScore");
     }
 }
 function insert(_doc) {
@@ -55,15 +55,14 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
-function searchMatrikelnumber(_marnum, _callback) {
-    var cursor = players.find({ "matrikel": _marnum });
-    cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e, playerArray) {
-        if (_e)
-            _callback("Error" + _e);
-        else
-            _callback(JSON.stringify(playerArray));
-    }
-}
-exports.searchMatrikelnumber = searchMatrikelnumber;
+// export function searchMatrikelnumber(_marnum: number, _callback: Function): void {
+//     var cursor: Mongo.Cursor = players.find({"player": _marnum});
+//     cursor.toArray(prepareAnswer);
+//     function prepareAnswer(_e: Mongo.MongoError, playerArray: PlayerData[]): void {
+//         if (_e)
+//             _callback("Error" + _e);
+//         else
+//             _callback(JSON.stringify(playerArray));
+//     }
+// }
 //# sourceMappingURL=Database.js.map
