@@ -28,7 +28,7 @@ namespace invino {
         setupAsyncForm();
         window.removeEventListener("click", init);
         console.log("init");
-        window.setTimeout(gameEnds, 1000);
+        window.setTimeout(gameEnds, 45000);
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         c2d = canvas.getContext("2d");
         //background

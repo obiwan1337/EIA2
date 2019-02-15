@@ -26,7 +26,7 @@ var invino;
         setupAsyncForm();
         window.removeEventListener("click", init);
         console.log("init");
-        window.setTimeout(gameEnds, 1000);
+        window.setTimeout(gameEnds, 45000);
         let canvas = document.getElementsByTagName("canvas")[0];
         invino.c2d = canvas.getContext("2d");
         //background
