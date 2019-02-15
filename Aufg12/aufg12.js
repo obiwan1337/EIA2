@@ -144,8 +144,8 @@ var invino;
     function cords(event) {
         console.log(event.offsetX, event.offsetY);
         //bullet.
-        let x = event.offsetX;
-        let y = event.offsetY;
+        let x = event.pageX;
+        let y = event.pageY;
         bulletshot(x, y);
     }
     function gameEnds() {
