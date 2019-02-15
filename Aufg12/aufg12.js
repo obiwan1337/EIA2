@@ -10,7 +10,6 @@ var invino;
     let imgData;
     let bullet = [];
     let playerScore = 0;
-    let playerName;
     let gameEndbool = false;
     function gameStart() {
         document.getElementById('endscore').style.display = 'none';
@@ -107,11 +106,6 @@ var invino;
         }
         else {
             gameEnds();
-            // window.clearTimeout(1000 / fps);
-            // window.setTimeout(gameEnds, 1000 / fps);
-            // window.clearTimeout(1000 / fps);
-            // console.log("update ended");
-            // window.addEventListener("click", gameStart);
         }
     }
     function bulletshot(_x, _y) {

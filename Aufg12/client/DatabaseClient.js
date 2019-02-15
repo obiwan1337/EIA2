@@ -38,10 +38,30 @@ var invino;
         let xhr = _event.target;
         console.log(xhr);
         if (xhr.readyState == XMLHttpRequest.DONE) {
+            let score = JSON.parse(xhr.response);
+            score.sort(playerDataSort);
             let output = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            console.log(output.value);
+            let textareaInnerString = "";
+            for (let i = 0; i < 5; i++) {
+                let ranking = 1 + i;
+                textareaInnerString += ranking + "_ " + "name " + score[i].name + " Score:" + score[i].score + "\r\n";
+            }
+            output.innerHTML = textareaInnerString;
+            output.value;
         }
+    }
+    function playerDataSort(_a, _b) {
+        let returnNumb;
+        if (_a.score > _b.score) {
+            returnNumb = -1;
+        }
+        else if (_a.score < _b.score) {
+            returnNumb = 1;
+        }
+        else {
+            returnNumb = 0;
+        }
+        return returnNumb;
     }
 })(invino || (invino = {}));
 //# sourceMappingURL=DatabaseClient.js.map

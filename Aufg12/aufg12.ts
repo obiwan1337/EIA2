@@ -10,7 +10,6 @@ namespace invino {
     let imgData: ImageData;
     let bullet: Bullet[] = [];
     let playerScore: number = 0;
-    let playerName: string;
     let gameEndbool: boolean = false;
 
     function gameStart(): void {
@@ -68,8 +67,6 @@ namespace invino {
     function update(): void {
         if (gameEndbool == false) {
             window.setTimeout(update, 1000 / fps);
-
-
             c2d.clearRect(0, 0, c2d.canvas.width, c2d.canvas.height);
             c2d.putImageData(imgData, 0, 0);
 
@@ -117,11 +114,7 @@ namespace invino {
             }
         } else {
             gameEnds();
-            // window.clearTimeout(1000 / fps);
-            // window.setTimeout(gameEnds, 1000 / fps);
-            // window.clearTimeout(1000 / fps);
-            // console.log("update ended");
-            // window.addEventListener("click", gameStart);
+
         }
     }
 
@@ -172,11 +165,11 @@ namespace invino {
         let showend: endScreen = end;
         showend.init();
         showend.draw();
-        document.getElementById('ownscore').innerHTML = playerScore.toString(); 
+        document.getElementById('ownscore').innerHTML = playerScore.toString();
         document.getElementById('endscore').style.display = '';
         let input: HTMLElement = document.getElementById("playername");
-        input.setAttribute("score",playerScore.toString());
-        
+        input.setAttribute("score", playerScore.toString());
+
     }
     function setupAsyncForm(): void {
         let button: Element = document.querySelector("[type=button]");
@@ -199,11 +192,11 @@ namespace invino {
     function handleStateChange(_event: ProgressEvent): void {
         var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
         console.log(xhr.readyState);
-        
+
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
             console.log("response: " + xhr.response);
-            
+
             var responsearea = document.getElementById("scores");
             responsearea.innerHTML = "";
             responsearea.innerHTML += xhr.response;

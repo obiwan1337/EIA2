@@ -31,7 +31,7 @@ function handleConnect(_e: Mongo.MongoError, _db: Mongo.Db): void {
     }
 }
 
-export function insert(_doc: PlayerData): void {
+export function insert(_doc: playerData): void {
     // try insertion then activate callback "handleInsert"
     players.insertOne(_doc, handleInsert);
 }
@@ -50,7 +50,7 @@ export function findAll(_callback: Function): void {
 
     // toArray-handler receives two standard parameters, an error object and the array
     // implemented as inner function, so _callback is in scope
-    function prepareAnswer(_e: Mongo.MongoError, playerArray: PlayerData[]): void {
+    function prepareAnswer(_e: Mongo.MongoError, playerArray: playerData[]): void {
         if (_e)
             _callback("Error" + _e);
         else
