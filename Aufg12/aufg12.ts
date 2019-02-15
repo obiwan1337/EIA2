@@ -161,15 +161,16 @@ namespace invino {
     }
     function gameEnds(): void {
         gameEndbool = true;
-        let end: endScreen = new endScreen();
-        let showend: endScreen = end;
-        showend.init();
-        showend.draw();
         document.getElementById('ownscore').innerHTML = playerScore.toString();
         document.getElementById('endscore').style.display = '';
+        document.getElementById('gameframe').style.display = 'none';
         let input: HTMLElement = document.getElementById("playername");
         input.setAttribute("score", playerScore.toString());
+        document.getElementById("playagain").addEventListener("click", reload);
 
+    }
+    function reload(): void {
+        window.location.reload();
     }
     function setupAsyncForm(): void {
         let button: Element = document.querySelector("[type=button]");
@@ -188,6 +189,7 @@ namespace invino {
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }
+   
 
     function handleStateChange(_event: ProgressEvent): void {
         var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;

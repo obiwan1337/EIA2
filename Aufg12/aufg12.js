@@ -150,14 +150,15 @@ var invino;
     }
     function gameEnds() {
         gameEndbool = true;
-        let end = new invino.endScreen();
-        let showend = end;
-        showend.init();
-        showend.draw();
         document.getElementById('ownscore').innerHTML = playerScore.toString();
         document.getElementById('endscore').style.display = '';
+        document.getElementById('gameframe').style.display = 'none';
         let input = document.getElementById("playername");
         input.setAttribute("score", playerScore.toString());
+        document.getElementById("playagain").addEventListener("click", reload);
+    }
+    function reload() {
+        window.location.reload();
     }
     function setupAsyncForm() {
         let button = document.querySelector("[type=button]");

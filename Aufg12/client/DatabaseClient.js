@@ -17,6 +17,7 @@ var invino;
         query += "&score=" + inputs[0].getAttribute("score");
         console.log(query);
         sendRequest(query, handleInsertResponse);
+        document.getElementById('savescore').setAttribute("disabled", "true");
     }
     function refresh(_event) {
         let query = "command=refresh";
@@ -44,7 +45,7 @@ var invino;
             let textareaInnerString = "";
             for (let i = 0; i < 5; i++) {
                 let ranking = 1 + i;
-                textareaInnerString += ranking + "_ " + "name " + score[i].name + " Score:" + score[i].score + "\r\n";
+                textareaInnerString += ranking + "_ " + "Name: " + score[i].name + " Score:" + score[i].score + "\r\n";
             }
             output.innerHTML = textareaInnerString;
             output.value;

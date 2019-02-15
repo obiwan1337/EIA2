@@ -9,6 +9,7 @@ namespace invino {
     function init(_event: Event): void {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("savescore");
+
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("showscore");
 
         insertButton.addEventListener("click", insert);
@@ -24,6 +25,7 @@ namespace invino {
 
         console.log(query);
         sendRequest(query, handleInsertResponse);
+        document.getElementById('savescore').setAttribute("disabled", "true" );
     }
     function refresh(_event: Event): void {
         let query: string = "command=refresh";
@@ -56,7 +58,7 @@ namespace invino {
             let textareaInnerString: string = "";
             for (let i: number = 0; i < 5; i++) {
                 let ranking: number = 1 + i;
-                textareaInnerString += ranking + "_ " + "name " + score[i].name + " Score:" + score[i].score + "\r\n";
+                textareaInnerString += ranking + "_ " + "Name: " + score[i].name + " Score:" + score[i].score + "\r\n";
             }
             output.innerHTML = textareaInnerString;
 

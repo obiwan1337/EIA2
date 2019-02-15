@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Animation</title>
+<title>Rodelhang von Verdun</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="utf-8" />
 <script src="aufg12.js" type="text/javascript" charset="utf-8"></script>
 <script src="moving_objects.js" type="text/javascript" charset="utf-8"></script>
-<script src="gameEnd.js" type="text/javascript" charset="utf-8"></script>
 <script src="gameStart.js" type="text/javascript" charset="utf-8"></script>
 <script src="sledge.js" type="text/javascript" charset="utf-8"></script>
 <script src="trees.js" type="text/javascript" charset="utf-8"></script>
@@ -19,13 +18,14 @@
 <body>
 	<canvas id= "gameframe" width=1900 height=1000></canvas>
 	<form id= "endscore">
-	<div id ="resdiv"> <input id="playername" type="text" name="plnm" placeholder="enter your name"/>
+	<div id ="resdiv"> <input id="playername" type="text" name="plnm" placeholder="enter your name"  >
 	<button id="savescore" type="button">save your score</button> 
 	<button id="showscore" type="button">show top 5</button> 
 	<p id= "ownscore"></p>
-	<textarea id= "scores" readonly rows="20" cols="30" ></textarea>
+	<textarea id= "scores" readonly rows="20" cols="40" ></textarea>
+	<button id="playagain" type="button">Play again</button>
 	</div>
 	</form>
-	<div id ="resdiv"> </div>
+	
 </body>
 </html>

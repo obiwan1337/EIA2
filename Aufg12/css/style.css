@@ -6,10 +6,11 @@
 
 }
 #gameframe{
-    position: fixed;
+    width:95%;
+    right:2.5%;
 }
 #resdiv{
-    position:fixed;
+    width:100%;
     bottom:30%;
     right:25%;
 }

@@ -55,14 +55,4 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
-// export function searchMatrikelnumber(_marnum: number, _callback: Function): void {
-//     var cursor: Mongo.Cursor = players.find({"player": _marnum});
-//     cursor.toArray(prepareAnswer);
-//     function prepareAnswer(_e: Mongo.MongoError, playerArray: PlayerData[]): void {
-//         if (_e)
-//             _callback("Error" + _e);
-//         else
-//             _callback(JSON.stringify(playerArray));
-//     }
-// }
 //# sourceMappingURL=Database.js.map
