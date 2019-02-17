@@ -50,9 +50,7 @@ var invino;
             let tree = new invino.Tree();
             trees.push(tree);
             console.log(tree);
-        }
-        for (let i = 0; i < 10; i++) {
-            let tree = trees[i];
+            tree = trees[i];
             tree.init();
             tree.draw();
         }
@@ -129,7 +127,7 @@ var invino;
                 sledges[i].xblood = bullet[0].x;
                 sledges[i].yblood = bullet[0].y;
             }
-            if (sledge.x + 100 >= bullet[0].x && sledge.x <= bullet[0].x && sledge.y >= bullet[0].y && sledge.y - 100 <= bullet[0].y && sledge.direction == false) {
+            if (sledge.x + 200 >= bullet[0].x && sledge.x + 100 <= bullet[0].x && sledge.y - 100 >= bullet[0].y && sledge.y - 200 <= bullet[0].y && sledge.direction == false) {
                 console.log("hitupwards");
                 playerScore += 50;
                 sledges[i].hashit = true;
